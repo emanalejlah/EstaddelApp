@@ -37,6 +37,7 @@ struct AddRealEstateView: View {
     
     @StateObject var viewModel = AddRealEstateViewModel()
     @EnvironmentObject var firebaseUserManager : FirebaseUserManager
+    @Binding var isShowingAddingRealEstateView: Bool
 
     @Environment(\.presentationMode) private var presentationMode
     var body: some View {
@@ -470,8 +471,12 @@ struct AddRealEstateView: View {
                         VStack{
                             HStack{
                                 VStack{
-                          Image("people-1")
+                                    WebImage(url: URL(string: firebaseUserManager.user.profileImageUrl))
                                         .resizable()
+                                        .placeholder {
+                                        Rectangle().foregroundColor(.gray)
+                                    }
+                                    .indicator(.activity)
                                         .scaledToFill()
                                         .frame(width: 50, height: 50)
                                         .clipShape(Circle())
@@ -480,7 +485,7 @@ struct AddRealEstateView: View {
                                             Circle()
                                                 .stroke(Color.white, lineWidth: 0.4)
                                         }
-                                    Text(Lorem.firstName)
+                                    Text(firebaseUserManager.user.username)
                                 }
                                 VStack{
                                     HStack{
@@ -534,7 +539,8 @@ struct AddRealEstateView: View {
                     }
                 }
                 NavigationLink {
-                    SampleRealEstate(realEstate: $viewModel.realEstate, images: $viewModel.images, coordinateRegion: $viewModel.coordinateRegion)
+                    SampleRealEstate(realEstate: $viewModel.realEstate, images: $viewModel.images, coordinateRegion: $viewModel.coordinateRegion,
+                                     isShowingAddingRealEstateView: $isShowingAddingRealEstateView)
                     
                 } label: {
                     Text("Show sample before")
@@ -564,6 +570,14 @@ struct AddRealEstateView: View {
             }
         }
         }
+    }
+}
+
+struct AddRealEstateView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddRealEstateView(isShowingAddingRealEstateView: .constant(false))
+            .preferredColorScheme(.dark)
+            .environmentObject(FirebaseUserManager())
     }
 }
 struct persininfo: View {
@@ -810,13 +824,7 @@ struct AmentitiesAddRealEstateView: View {
         }.padding(.horizontal, 4)
     }
 }
-struct AddRealEstateView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddRealEstateView()
-            .preferredColorScheme(.dark)
-            .environmentObject(FirebaseUserManager())
-    }
-}
+
 
 import MapKit
 

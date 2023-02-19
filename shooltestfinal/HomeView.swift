@@ -303,7 +303,7 @@ struct HomeView: View {
             )
         }
         .fullScreenCover(isPresented: $isShowingAddingRealEstateView) {
-            AddRealEstateView()
+            AddRealEstateView(isShowingAddingRealEstateView: $isShowingAddingRealEstateView)
         }
                 .fullScreenCover(isPresented: $isShowingLoginView,onDismiss: firebaseUserManager.fetchUser) {
                     Login()

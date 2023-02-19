@@ -55,7 +55,7 @@ class FirebaseRealEstateManager: NSObject, ObservableObject{
                 print("DEBUG: while geeting user info \(error)")
                 return
             }
-            guard let userOwner = try? documentSnapshot?.data(as:User.self) else {return}
+            guard let userOwner = try?  documentSnapshot?.data(as:User.self) else {return}
             comletion(userOwner)
         }
         
@@ -68,6 +68,7 @@ class FirebaseRealEstateManager: NSObject, ObservableObject{
         self.uploadImagesToStorage(images: images) { imageUrlString in
             realEstate.images = imageUrlString
             try?  self.firestore.collection("realEstates").document(realEstate.id).setData(from: realEstate)
+            Completion(true)
         }
 
      

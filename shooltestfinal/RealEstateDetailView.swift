@@ -112,7 +112,7 @@ struct RealEstateDetailView: View {
                                     .background(Material.ultraThin)
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                                 Spacer()
-                                Text("\(realEstate.price , specifier: "%0.0f")")
+                                Text("\(realEstate.price )")
                                     .padding(8)
                                         .background(Material.ultraThin)
                                         .clipShape(Circle())

@@ -19,6 +19,8 @@ struct SampleRealEstate: View {
 //    @Binding var videoUrl: URL?
     @State var selectedMediaType: MediaType = .photos
     @Binding var coordinateRegion: MKCoordinateRegion
+    @Binding var isShowingAddingRealEstateView: Bool
+    @State var isLoading: Bool = false
 //    @State var timeConact: []
     
     
@@ -57,7 +59,8 @@ struct SampleRealEstate: View {
                                                 HStack{
                                                     HStack{
                                                         Image(systemName: "photo")
-                                                        Text("\(realEstate.images.count)")
+//                                                        Text("\(realEstate.images.count)")
+                                                        Text("\(images.count)")
                                                     }
                                                     .padding(8)
                                                         .background(Material.ultraThin)
@@ -78,7 +81,7 @@ struct SampleRealEstate: View {
                                                         .background(Material.ultraThin)
                                                         .clipShape(RoundedRectangle(cornerRadius: 12))
                                                     Spacer()
-                                                    Text("\(realEstate.price , specifier: "%0.0f")")
+                                                    Text("\(realEstate.price)")
                                                         .padding(8)
                                                             .background(Material.ultraThin)
                                                             .clipShape(Circle())
@@ -175,7 +178,7 @@ struct SampleRealEstate: View {
                             Circle()
                                 .stroke(Color.white, lineWidth: 0.4)
                         }
-                    Text(Lorem.firstName)
+                    Text(firebaseUserManager.user.username)
                 }
               
                     VStack{
@@ -226,11 +229,20 @@ struct SampleRealEstate: View {
                 }
                 Group{
                     Button {
+                        isLoading.toggle()
                         realEstate.ownerId = firebaseUserManager.user.id
                         firebaseRealEstateManager.addRealEstate(realEstate: realEstate, images: images) { isSuccess in
+                      
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            if isSuccess {
+                                self.isShowingAddingRealEstateView = false
+                            }else {
+                                isLoading.toggle()
+                                print("DUBAG: errorb while uploding realestate")
+                            }
                            
                         }
-                       
+                        }
                     } label: {
                         Text("Show your deteial")
                             .foregroundColor(.white)
@@ -246,7 +258,21 @@ struct SampleRealEstate: View {
 
         }
         
-       
+        .overlay {
+           ZStack {
+               Color.black.opacity(0.4)
+                   .ignoresSafeArea()
+
+               VStack(spacing: 20){
+                   ProgressView()
+                       .progressViewStyle(.circular)
+                       .tint(.white)
+                       .scaleEffect(2)
+                       Text("please wait...")
+               }
+           }   .isHidden(!isLoading,remove:!isLoading)
+               
+       }
 
         .navigationTitle("text")
 
@@ -258,7 +284,8 @@ struct SampleRealEstate_Previews: PreviewProvider {
     static var previews: some View {
         SampleRealEstate(realEstate: .constant(realEstateSample),
                          images: .constant([UIImage(named: "Image 1")!,UIImage(named: "Image 2")!,UIImage(named: "Image 3")!]),
-                         coordinateRegion:  .constant(.init(center: realEstateSample.location, span: realEstateSample.city.extraZoomLevel)))
+                         coordinateRegion:  .constant(.init(center: realEstateSample.location, span: realEstateSample.city.extraZoomLevel)),
+                         isShowingAddingRealEstateView: .constant(false))
             .preferredColorScheme(.dark)
            .environmentObject(FirebaseUserManager())
            .environmentObject(FirebaseRealEstateManager())
