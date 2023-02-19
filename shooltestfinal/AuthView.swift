@@ -158,7 +158,7 @@ struct AuthView: View {
 //      Auth.auth().createUser(withEmail: email,   password: password)
 
                 } label: {
-                    Text(isNewUser ? "create Acount" : "log in")
+                    Text(isNewUser ? "Create Account" : "Log in")
                         .foregroundColor(.white)
                         .frame(width: 300 , height: 50)
                         .background(Color.blue.cornerRadius(5))
@@ -171,7 +171,7 @@ struct AuthView: View {
 
                 
                 NavigationLink (destination: Login(), label: {
-                  Text("have accoun")
+                  Text("Already have an account?")
                     .foregroundColor(.white)
                     .font(.headline)
                     .padding(30)
@@ -202,7 +202,7 @@ struct AuthView: View {
                         .progressViewStyle(.circular)
                         .tint(.white)
                         .scaleEffect(2)
-                        Text("please wait...")
+                        Text("Please waite...")
                 }
             }   .isHidden(!isLoading,remove:!isLoading)
                 
