@@ -66,6 +66,8 @@
 		AD012C7C29A249C3000515D5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ar; path = "ar.lproj/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD012C8129A24AC0000515D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD012C8329A24AC4000515D5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AD012C8429A363BD000515D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = "en.lproj/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AD012C8529A363C2000515D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = "Base.lproj/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B62DCC6429A117CD00F4F3F2 /* FirebaseRealEstateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRealEstateManager.swift; sourceTree = "<group>"; };
 		B65F5EC8299F8AEA0031AEEA /* shooltestfinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shooltestfinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65F5ECB299F8AEA0031AEEA /* shooltestfinalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shooltestfinalApp.swift; sourceTree = "<group>"; };
@@ -410,6 +412,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				AD012C7C29A249C3000515D5 /* ar */,
+				AD012C8429A363BD000515D5 /* en */,
+				AD012C8529A363C2000515D5 /* Base */,
 			);
 			name = "GoogleService-Info.plist";
 			sourceTree = "<group>";
