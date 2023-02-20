@@ -433,7 +433,8 @@ struct RealEstateDetailView_Previews: PreviewProvider {
 
                                             
 let realEstateSample: RealEstate = .init(images: ["Image 1", "Image 2", "Image 3", "Image 4", "Image 5"],
-                                            description : Lorem.paragraph, beds: Int.random(in: 1...4),
+                                            description : Lorem.paragraph,
+                                           beds: Int.random(in: 1...4),
                                             baths: Int.random(in: 1...4),
                                             livingRooms: Int.random (in: 1...4),
                                             space:Int.random (in: 100...200),

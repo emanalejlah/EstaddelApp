@@ -437,7 +437,26 @@ struct AddRealEstateView: View {
                                     .stroke(Color.white,lineWidth: 0.2)
                             )
                     }.padding(.horizontal , 4)
-                    
+                    Divider()
+//                    nwe
+                    VStack{
+                        HStack{
+                            Text("SchoolName :")
+                                .foregroundColor(.orange)
+                                .font(.title)
+                            Spacer()
+                        }
+                        
+                        TextField("SchoolName", text:$viewModel.realEstate.EfName, axis:.vertical)
+                            .padding()
+                            .frame(minHeight: 100)
+                        
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(Color.white,lineWidth: 0.2)
+                            )
+                    }.padding(.horizontal , 4)
+                    // NEW
                 }
                 Divider()
                 Group{
