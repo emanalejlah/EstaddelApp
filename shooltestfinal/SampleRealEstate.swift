@@ -27,103 +27,160 @@ struct SampleRealEstate: View {
     
     var body: some View {
         ScrollView{
-            Picker(selection: $selectedMediaType) {
-                ForEach(MediaType.allCases, id:\.self){ mediaType in
-                    Text(mediaType.title)
-                }
-                
-            } label: {
-            }.labelsHidden()
             
-            .pickerStyle(.segmented)
-       
             
-            switch selectedMediaType {
-            case .photos:
-                                if !images.isEmpty{
-                                    TabView{
-                                        ForEach(images, id:\.self){ uiImage in
-                                            Image(uiImage: uiImage)
-                                                .resizable()
-                                                .scaledToFill()
-                                                .frame(width: UIScreen.main.bounds.width - 20 , height: 340)
-                                                .clipShape(RoundedRectangle(cornerRadius: 12))
-                                                .offset(y: -20)
-                
+                      Group{
+                          VStack(alignment:.center){
+                              Image("A")
+                                  .resizable()
+                                  .frame(width: 150, height: 150)
+                                  .clipShape(Circle())
+                                  .overlay(Circle()
+                                      .stroke(Color.gray))
+                                  .padding(.bottom)
+                              
+                              Text(realEstate.description)
+                                  .font(.system(size: 17, weight: .semibold)).foregroundColor(Color("Sage"))
+                              
+                              VStack{
+                                  Text(realEstate.EfName)
+                                      .font(.system(size: 17, weight: .semibold)).foregroundColor(Color("Mandarin"))
+                                  
+                              }
+                              
+                              
+                              
+                              
+                              HStack{
+                                  Image(systemName:"person" )
+                                      .font(.system(size: 25, weight: .regular))
+                                      .foregroundColor(Color("Sage"))
+                                  Text(realEstate.EfName)
+                              }
+                              
+                              HStack{
+                                  Image(systemName:"dollarsign.circle" )
+                                      .font(.system(size: 25, weight: .regular))
+                                      .foregroundColor(Color("Sage"))
+                                  Text(realEstate.EfPhoneNu)
+                                  
+                              }
+                              
+                              
+                              
+                          }.padding(.horizontal, 4)
+                          
+                      }
+                      
+                      Group{
+                          
+                          VStack(){
+                              Text("Conacat Information")
+                                  .font(.system(size: 17, weight: .semibold))
+                              Divider()
+                              HStack{
+                                  Image(systemName:"envelope" )
+                                      .font(.system(size: 25, weight: .regular))
+                                      .foregroundColor(Color("Sage"))
+                                  Text(realEstate.EfName)
+                              }
+                              Divider()
+                              HStack{
+                                  Image(systemName:"phone" )
+                                      .font(.system(size: 25, weight: .regular))
+                                      .foregroundColor(Color("Sage"))
+                                  Text(realEstate.EfPhoneNu)
+                                  
+                              }
+                              
+                          }
+                      }
+            Group{
+                VStack{
+                    Text("Photo")
+                    
+                    if !images.isEmpty{
+                        TabView{
+                            ForEach(images, id:\.self){ uiImage in
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: UIScreen.main.bounds.width - 20 , height: 340)
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                                    .offset(y: -20)
+                                
+                            }
+                        }.tabViewStyle(.page(indexDisplayMode: .always))
+                            .indexViewStyle(.page(backgroundDisplayMode: .always))
+                            .frame(height:400)
+                            .overlay(
+                                VStack{
+                                    HStack{
+                                        HStack{
+                                            Image(systemName: "photo")
+                                            //                                                        Text("\(realEstate.images.count)")
+                                            Text("\(images.count)")
                                         }
-                                    }.tabViewStyle(.page(indexDisplayMode: .always))
-                                        .indexViewStyle(.page(backgroundDisplayMode: .always))
-                                        .frame(height:400)
-                                        .overlay(
-                                            VStack{
-                                                HStack{
-                                                    HStack{
-                                                        Image(systemName: "photo")
-//                                                        Text("\(realEstate.images.count)")
-                                                        Text("\(images.count)")
-                                                    }
-                                                    .padding(8)
-                                                        .background(Material.ultraThin)
-                                                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                                                    Spacer()
-                                                    Image(systemName: "bookmark")
-                                                        .padding(8)
-                                                            .background(Material.ultraThin)
-                                                            .clipShape(Circle())
-                                                }
-                                                Spacer()
-                                                HStack{
-                                                    HStack{
-                                                        Image(systemName: realEstate.saleCategory.imageName)
-                                                        Text("\(realEstate.saleCategory.title)")
-                                                    }
-                                                    .padding(8)
-                                                        .background(Material.ultraThin)
-                                                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                                                    Spacer()
-                                                    Text("\(realEstate.price)")
-                                                        .padding(8)
-                                                            .background(Material.ultraThin)
-                                                            .clipShape(Circle())
-                                                }
-                                            }.padding()
-                                                .padding(.bottom, 36)
-                                        )
-                                }else {
-                                    Image(systemName: "photo")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 100 , height: 100)
-                                        .opacity(0.4)
-                                        .padding(.vertical)
-                                }
-                
-            case .video:
-                Text ("nn")
-//                VideoPlayer(player:AVPlayer(url: URL(string: realEstate.videoUrlString)!))
-//                    .frame(width:UIScreen.main.bounds.width ,
-//                           height: 340)
-                   
-            }
-            Divider()
-            VStack(alignment:.leading){
-                HStack{
-                    Text("Info")
-                        .foregroundColor(.orange)
-                        .font(.title)
-                    Spacer()
+                                        .padding(8)
+                                        .background(Material.ultraThin)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                        Spacer()
+                                        Image(systemName: "bookmark")
+                                            .padding(8)
+                                            .background(Material.ultraThin)
+                                            .clipShape(Circle())
+                                    }
+                                    Spacer()
+                                    HStack{
+                                        HStack{
+                                            Image(systemName: realEstate.saleCategory.imageName)
+                                            Text("\(realEstate.saleCategory.title)")
+                                        }
+                                        .padding(8)
+                                        .background(Material.ultraThin)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                        Spacer()
+                                        Text("\(realEstate.price)")
+                                            .padding(8)
+                                            .background(Material.ultraThin)
+                                            .clipShape(Circle())
+                                    }
+                                }.padding()
+                                    .padding(.bottom, 36)
+                            )
+                    }else {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 100 , height: 100)
+                            .opacity(0.4)
+                            .padding(.vertical)
+                    }
+                    
                 }
+            }
 
-                Text(realEstate.description)
-                    .multilineTextAlignment(.leading)
-                    .padding(.leading, 2)
-            }.padding(.horizontal, 4)
+                   
+            
+//            Divider()
+//            VStack(alignment:.leading){
+//                HStack{
+//                    Text("Info")
+//                        .foregroundColor(.orange)
+//                        .font(.title)
+//                    Spacer()
+//                }
+//
+//                Text(realEstate.description)
+//                    .multilineTextAlignment(.leading)
+//                    .padding(.leading, 2)
+//            }.padding(.horizontal, 4)
 
             Divider()
             ApplianceView(realEstate: $realEstate)
             
-            Divider()
-            AmenitieView(realEstate: $realEstate)
+//            Divider()
+//            AmenitieView(realEstate: $realEstate)
             
       
             Map(coordinateRegion: $coordinateRegion, annotationItems: [realEstate]){ realEstate in
@@ -286,7 +343,7 @@ struct SampleRealEstate_Previews: PreviewProvider {
                          images: .constant([UIImage(named: "Image 1")!,UIImage(named: "Image 2")!,UIImage(named: "Image 3")!]),
                          coordinateRegion:  .constant(.init(center: realEstateSample.location, span: realEstateSample.city.extraZoomLevel)),
                          isShowingAddingRealEstateView: .constant(false))
-            .preferredColorScheme(.dark)
+//            .preferredColorScheme(.dark)
            .environmentObject(FirebaseUserManager())
            .environmentObject(FirebaseRealEstateManager())
            

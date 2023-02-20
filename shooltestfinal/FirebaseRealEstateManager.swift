@@ -62,7 +62,7 @@ class FirebaseRealEstateManager: NSObject, ObservableObject{
     }
 
     
-    func addRealEstate(realEstate:RealEstate, images:[UIImage] , Completion: @escaping ((Bool) -> ()  )){
+    func addRealEstate(realEstate:RealEstate, images:[UIImage] ,   Completion: @escaping ((Bool) -> ()  )){
         var realEstate = realEstate
         
         self.uploadImagesToStorage(images: images) { imageUrlString in

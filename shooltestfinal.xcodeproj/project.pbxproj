@@ -13,6 +13,7 @@
 		AD012C7A29A2382F000515D5 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD012C7629A2382F000515D5 /* LoadingView.swift */; };
 		AD012C7B29A249C3000515D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD012C7D29A249C3000515D5 /* GoogleService-Info.plist */; };
 		AD012C8029A24AC0000515D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD012C8229A24AC0000515D5 /* Localizable.strings */; };
+		B600FDEB29A3C2C700819C9A /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B600FDEA29A3C2C700819C9A /* CustomInputField.swift */; };
 		B62DCC6529A117CD00F4F3F2 /* FirebaseRealEstateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62DCC6429A117CD00F4F3F2 /* FirebaseRealEstateManager.swift */; };
 		B641966229A29BEE00434270 /* MyRealEstatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641966129A29BED00434270 /* MyRealEstatesView.swift */; };
 		B65F5ECC299F8AEA0031AEEA /* shooltestfinalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F5ECB299F8AEA0031AEEA /* shooltestfinalApp.swift */; };
@@ -67,6 +68,7 @@
 		AD012C7C29A249C3000515D5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ar; path = "ar.lproj/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD012C8129A24AC0000515D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD012C8329A24AC4000515D5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B600FDEA29A3C2C700819C9A /* CustomInputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		B61849FC29A3659600688053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = "Base.lproj/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B62DCC6429A117CD00F4F3F2 /* FirebaseRealEstateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRealEstateManager.swift; sourceTree = "<group>"; };
 		B641966129A29BED00434270 /* MyRealEstatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRealEstatesView.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				B62DCC6429A117CD00F4F3F2 /* FirebaseRealEstateManager.swift */,
 				B65F5F0E299FA3420031AEEA /* Model.swift */,
 				B65F5F1E29A0311C0031AEEA /* LocationManager.swift */,
+				B600FDEA29A3C2C700819C9A /* CustomInputField.swift */,
 				AD012C7229A2382F000515D5 /* LoadingView */,
 				B65F5F1C29A019970031AEEA /* MediaPicker */,
 				B65F5ECF299F8AEB0031AEEA /* Assets.xcassets */,
@@ -356,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B600FDEB29A3C2C700819C9A /* CustomInputField.swift in Sources */,
 				B65F5EF8299F8B500031AEEA /* Login.swift in Sources */,
 				B65F5F2529A05D040031AEEA /* SampleRealEstate.swift in Sources */,
 				B65F5EF6299F8B170031AEEA /* AuthView.swift in Sources */,

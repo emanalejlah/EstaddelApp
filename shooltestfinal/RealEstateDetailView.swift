@@ -39,20 +39,88 @@ struct RealEstateDetailView: View {
     
     var body: some View {
         ScrollView{
-            Picker(selection: $selectedMediaType) {
-                ForEach(MediaType.allCases, id:\.self){ mediaType in
-                    Text(mediaType.title)
-                }
+  
+            Group{
+                VStack(alignment:.center){
+                    Image("A")
+                        .resizable()
+                        .frame(width: 150, height: 150)
+                        .clipShape(Circle())
+                        .overlay(Circle()
+                            .stroke(Color.gray))
+                        .padding(.bottom)
+                    
+                    Text(realEstate.description)
+                        .font(.system(size: 17, weight: .semibold)).foregroundColor(Color("Sage"))
+                    
+                    VStack{
+                        Text(realEstate.EfName)
+                            .font(.system(size: 17, weight: .semibold)).foregroundColor(Color("Mandarin"))
+                        
+                    }
+                    
+                    
+                    
+                    
+                    HStack{
+                        Image(systemName:"person" )
+                            .font(.system(size: 25, weight: .regular))
+                            .foregroundColor(Color("Sage"))
+                        Text(realEstate.EfName)
+                    }
+                    
+                    HStack{
+                        Image(systemName:"dollarsign.circle" )
+                            .font(.system(size: 25, weight: .regular))
+                            .foregroundColor(Color("Sage"))
+                        Text(realEstate.EfPhoneNu)
+                        
+                    }
+                    
+                    
+                    
+                }.padding(.horizontal, 4)
                 
-            } label: {
-            }.labelsHidden()
+            }
             
-            .pickerStyle(.segmented)
+            Group{
+                
+                VStack(){
+                    Text("Conacat Information")
+                        .font(.system(size: 17, weight: .semibold))
+                    Divider()
+                    HStack{
+                        Image(systemName:"envelope" )
+                            .font(.system(size: 25, weight: .regular))
+                            .foregroundColor(Color("Sage"))
+                        Text(realEstate.EfName)
+                    }
+                    Divider()
+                    HStack{
+                        Image(systemName:"phone" )
+                            .font(.system(size: 25, weight: .regular))
+                            .foregroundColor(Color("Sage"))
+                        Text(realEstate.EfPhoneNu)
+                        
+                    }
+                    
+                }
+            }
+          
+
+//            Picker(selection: $selectedMediaType) {
+//                ForEach(MediaType.allCases, id:\.self){ mediaType in
+//                    Text(mediaType.title)
+//                }
+//
+//            } label: {
+//            }.labelsHidden()
+//
+//            .pickerStyle(.segmented)
        
-            
-            switch selectedMediaType {
-            case .photos:
+          
                 VStack {
+                    Text("photo")
                     if !realEstate.images.isEmpty {
                         TabView{
                         ForEach(realEstate.images, id: \.self){ imageUrlString in
@@ -129,29 +197,10 @@ struct RealEstateDetailView: View {
                             .padding(.vertical , 18)
                     }
                 }
-            case .video:
-                VideoPlayer(player:AVPlayer(url: URL(string: realEstate.videoUrlString)!))
-                    .frame(width:UIScreen.main.bounds.width ,
-                           height: 340)
-                   
-            }
-            Divider()
-            VStack(alignment:.leading){
-                HStack{
-                    Text("Info")
-                        .foregroundColor(.orange)
-                        .font(.title)
-                    Spacer()
-                }
-
-                Text(realEstate.description)
-                    .multilineTextAlignment(.leading)
-                    .padding(.leading, 2)
-            }.padding(.horizontal, 4)
+          
+           
             
 
-            Divider()
-            ApplianceView(realEstate: $realEstate)
             
             Divider()
             AmenitieView(realEstate: $realEstate)
@@ -423,7 +472,7 @@ struct RealEstateDetailView_Previews: PreviewProvider {
     static var previews: some View {
         RealEstateDetailView(realEstate: .constant(realEstateSample))
                             
-            .preferredColorScheme(.dark)
+//            .preferredColorScheme(.dark)
               .environmentObject(FirebaseUserManager())
               .environmentObject(FirebaseRealEstateManager())
 
@@ -434,6 +483,9 @@ struct RealEstateDetailView_Previews: PreviewProvider {
                                             
 let realEstateSample: RealEstate = .init(images: ["Image 1", "Image 2", "Image 3", "Image 4", "Image 5"],
                                             description : Lorem.paragraph,
+                                         EfName : Lorem.title,
+                                         Efemail : Lorem.title, EfPhoneNu : Lorem.word, EfstudentsNO : Lorem.title,
+                                         Efprice : Lorem.word,
                                            beds: Int.random(in: 1...4),
                                             baths: Int.random(in: 1...4),
                                             livingRooms: Int.random (in: 1...4),
@@ -453,3 +505,9 @@ let realEstateSample: RealEstate = .init(images: ["Image 1", "Image 2", "Image 3
                                             
                                             
       
+//var EfName: String = ""
+//var Efemail: String = ""
+//var EfPhoneNu: String = ""
+//var EfCity: String = ""
+//var EfstudentsNO: String = ""
+//var Efprice: String = ""

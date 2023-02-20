@@ -22,7 +22,7 @@ class AddRealEstateViewModel: ObservableObject {
 //   @Published var videoUrl: URL?
     @Published var refreshMapViewId = UUID()
     @Published var coordinateRegion: MKCoordinateRegion = .init(center: .init(latitude: 0.0, longitude: 0.0), span: .init(latitudeDelta: 0.0, longitudeDelta: 0.0))
-    
+    @State var profileImage: UIImage?
     
 //    @Published var refreshMapViewId = UUID()
     
@@ -43,6 +43,92 @@ struct AddRealEstateView: View {
     var body: some View {
         NavigationView{
             ScrollView{
+                VStack{
+                    Image("A")
+                        .resizable()
+                        .frame(width: 150, height: 150)
+                        .clipShape(Circle())
+                        .overlay(Circle()
+                            .stroke(Color.gray))
+                        .padding(.bottom)
+//                    Text("ABC international school")
+//                        .font(.system(size: 17, weight: .semibold)).foregroundColor(Color("Sage"))
+//
+//                    Text("Riyadh")
+//                        .font(.system(size: 17, weight: .regular)).foregroundColor(Color("Mandarin"))
+                    Group{
+                      
+                        VStack{
+       
+                            
+//                            TextField("type info", text:$viewModel.realEstate.description, axis:.vertical)
+//                                .padding()
+//                                .frame(minHeight: 10)
+                            Text("School Information")
+                                .font(.system(size: 20, weight: .bold))
+                                .padding(.bottom)
+                                .padding(.leading)
+
+                            
+                            CustomInputField(imageName: "building.fill",
+                                             placeholderText: "School Name",
+                                             text: $viewModel.realEstate.EfName)
+                            
+                            CustomInputField(imageName: "building.fill",
+                                             placeholderText: "City Name",
+                                             text: $viewModel.realEstate.EfCity)
+                            
+                            CustomInputField(imageName: "person",
+                                             placeholderText: "How much persons on class",
+                                             text: $viewModel.realEstate.EfstudentsNO)
+                            
+                            CustomInputField(imageName: "dollarsign.circle",
+                                             placeholderText: "How mush cost",
+                                             text: $viewModel.realEstate.Efprice)
+                            
+                            CustomInputField(imageName: "phone",
+                                             placeholderText: "Phone Number",
+                                             text: $viewModel.realEstate.EfPhoneNu)
+                            
+                            CustomInputField(imageName: "envelope",
+                                             placeholderText: "Email",
+                                             text: $viewModel.realEstate.Efemail)
+                           
+                                CustomInputField(imageName: "pencil.and.outline",
+                                                 placeholderText: "bio",
+                                                 text: $viewModel.realEstate.description)
+                              
+                                
+                                
+                                
+                            
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(Color.white,lineWidth: 0.2)
+                                )
+                        }.padding(.horizontal , 8)
+                        Divider()
+    //                    nwe
+//                        VStack{
+//                            HStack{
+//                                Text("SchoolName :")
+//                                    .foregroundColor(.orange)
+//                                    .font(.title)
+//                                Spacer()
+//                            }
+//
+//                            TextField("SchoolName", text:$viewModel.realEstate.EfName, axis:.vertical)
+//                                .padding()
+//                                .frame(minHeight: 100)
+//
+//                                .overlay(
+//                                    RoundedRectangle(cornerRadius: 5)
+//                                        .stroke(Color.white,lineWidth: 0.2)
+//                                )
+//                        }.padding(.horizontal , 4)
+                        // NEW
+                    }
+                }
                 
                 Group{
                     VStack{
@@ -237,54 +323,7 @@ struct AddRealEstateView: View {
                     }
                     
                 }.padding(.horizontal, 4)
-                Divider()
-                VStack{
-                    HStack{
-                        Text("video: ")
-                            .foregroundColor(.yellow)
-                        Spacer()
-                        
-                    }
-                    
-                    Button {
-                        viewModel.isShowingVideoPickerView.toggle()
-                    } label: {
-                        VStack{
-                            Image(systemName: "icloud.and.arrow.up" )
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 40 , height: 40)
-                            
-                            Label("uploud", systemImage: "play.circle")
-                            
-                            
-                            
-                            //                            Label("uploud photos", systemImage: "photo.stack")
-                        }
-                        .frame(width:UIScreen.main.bounds.width - 50,
-                               height: 140)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .strokeBorder(style: StrokeStyle(lineWidth: 2 , dash: [10]) )
-                        )
-                    }
-//                    
-//                                        .mediaImporter(isPresented: $viewModel.isShowingVideoPicker, allowedMediaTypes: .videos) { result in
-//                                                                   switch result {
-//                                                                    case .success(let videoUrl):
-//                                                                       DispatchQueue.main.async {
-//                                                                            self.viewModel.videoUrl = videoUrl
-//                    
-//                                                                       }
-//                                                                    case .failure(let error):
-//                                                                      print("DEBUG: Failed uploading a video \(error)")
-//                                                                   }
-//                                                               }
-//                   
-                    
-                   
-                }.padding(.horizontal , 4)
-                Divider()
+   
                 VStack(alignment: .center) {
                     HStack {
                         Text("Appliances")
@@ -418,46 +457,7 @@ struct AddRealEstateView: View {
                     
                     
                 }.padding(.horizontal, 4)
-                Group{
-                    Divider()
-                    VStack{
-                        HStack{
-                            Text("info :")
-                                .foregroundColor(.orange)
-                                .font(.title)
-                            Spacer()
-                        }
-                        
-                        TextField("type info", text:$viewModel.realEstate.description, axis:.vertical)
-                            .padding()
-                            .frame(minHeight: 100)
-                        
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(Color.white,lineWidth: 0.2)
-                            )
-                    }.padding(.horizontal , 4)
-                    Divider()
-//                    nwe
-                    VStack{
-                        HStack{
-                            Text("SchoolName :")
-                                .foregroundColor(.orange)
-                                .font(.title)
-                            Spacer()
-                        }
-                        
-                        TextField("SchoolName", text:$viewModel.realEstate.EfName, axis:.vertical)
-                            .padding()
-                            .frame(minHeight: 100)
-                        
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(Color.white,lineWidth: 0.2)
-                            )
-                    }.padding(.horizontal , 4)
-                    // NEW
-                }
+
                 Divider()
                 Group{
                 AmentitiesAddRealEstateView(viewModel: viewModel)
@@ -595,7 +595,7 @@ struct AddRealEstateView: View {
 struct AddRealEstateView_Previews: PreviewProvider {
     static var previews: some View {
         AddRealEstateView(isShowingAddingRealEstateView: .constant(false))
-            .preferredColorScheme(.dark)
+//            .preferredColorScheme(.dark)
             .environmentObject(FirebaseUserManager())
     }
 }

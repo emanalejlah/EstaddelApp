@@ -207,9 +207,12 @@ struct RealEstate: Codable, Equatable, Identifiable {
     var ownerId : String = ""  
     var description: String = ""
     var EfName: String = ""
+    var Efemail: String = ""
     var EfPhoneNu: String = ""
     var EfCity: String = ""
     var EfstudentsNO: String = ""
+    var Efprice: String = ""
+    var EfLogo: [String] = []
     var beds: Int = 0
     var baths: Int = 0
     var livingRooms: Int = 0
@@ -236,6 +239,7 @@ struct RealEstate: Codable, Equatable, Identifiable {
     var isAvailable           : Bool = true
     var price                 : Int = 0
     var videoUrlString        : String = ""
+    
     
 }
 
