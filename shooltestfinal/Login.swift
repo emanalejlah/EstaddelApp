@@ -28,7 +28,7 @@ struct Login: View {
         NavigationView{
                  ScrollView{
                      HStack{
-                         Text("welcome to my app")
+                         Text("Welcome to Estaddel!")
                          Spacer()
                          
                      }.padding(.horizontal)
@@ -123,7 +123,7 @@ struct Login: View {
      //      Auth.auth().createUser(withEmail: email,   password: password)
 
                      } label: {
-                         Text(isNewUser ? "create Acount" : "log in")
+                         Text(isNewUser ? "Create an acount" : "Log in")
                              .foregroundColor(.white)
                              .frame(width: 300 , height: 50)
                              .background(Color.blue.cornerRadius(5))
