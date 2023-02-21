@@ -69,6 +69,8 @@ struct AddRealEstateView: View {
                                 .padding(.bottom)
                                 .padding(.leading)
 
+                          
+                                 
                             
                             CustomInputField(imageName: "building.fill",
                                              placeholderText: "School Name",
@@ -78,27 +80,34 @@ struct AddRealEstateView: View {
                                              placeholderText: "City Name",
                                              text: $viewModel.realEstate.EfCity)
                             
+                            
+                                 CustomInputField(imageName: "pencil.and.outline",
+                                                  placeholderText: "bio",
+                                                  text: $viewModel.realEstate.description)
+                               
+                            
                             CustomInputField(imageName: "person",
                                              placeholderText: "How much persons on class",
                                              text: $viewModel.realEstate.EfstudentsNO)
-                            
+                            .keyboardType(.numberPad)
+
                             CustomInputField(imageName: "dollarsign.circle",
                                              placeholderText: "How mush cost",
                                              text: $viewModel.realEstate.Efprice)
+                            .keyboardType(.numberPad)
+
                             
                             CustomInputField(imageName: "phone",
                                              placeholderText: "Phone Number",
                                              text: $viewModel.realEstate.EfPhoneNu)
+                            .keyboardType(.numberPad)
+                            
+
                             
                             CustomInputField(imageName: "envelope",
                                              placeholderText: "Email",
                                              text: $viewModel.realEstate.Efemail)
                            
-                                CustomInputField(imageName: "pencil.and.outline",
-                                                 placeholderText: "bio",
-                                                 text: $viewModel.realEstate.description)
-                              
-                                
                                 
                                 
                             

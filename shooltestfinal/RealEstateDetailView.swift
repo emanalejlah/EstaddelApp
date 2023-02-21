@@ -60,7 +60,7 @@ struct RealEstateDetailView: View {
                             .font(.system(size: 17, weight: .semibold)).foregroundColor(Color("Mandarin"))
                         
                         Text(realEstate.description)
-                        .font(.system(size: 17, weight: .regular)).foregroundColor(Color("OnyxGray          "))
+                        .font(.system(size: 17, weight: .regular)).foregroundColor(Color("OnyxGray"))
                         .padding(.bottom)
                     }
                     
@@ -71,7 +71,9 @@ struct RealEstateDetailView: View {
                         Image(systemName:"person" )
                             .font(.system(size: 25, weight: .regular))
                             .foregroundColor(Color("Sage"))
+                        Text("Each class has")
                         Text(realEstate.EfstudentsNO)
+                        Text("students")
 
                         Spacer()
                     }                            .padding(.bottom)

@@ -55,7 +55,11 @@ struct SampleRealEstate: View {
                                   Image(systemName:"person" )
                                       .font(.system(size: 25, weight: .regular))
                                       .foregroundColor(Color("Sage"))
-                                  Text(realEstate.EfName)
+                                  Text("Each class has")
+                                  Text(realEstate.EfstudentsNO)
+                                  Text("students")
+
+                                  Spacer()
                               }
                               
                               HStack{
