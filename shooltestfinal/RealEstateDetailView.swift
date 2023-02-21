@@ -514,7 +514,7 @@ let realEstateSample: RealEstate = .init(images: ["Image 1", "Image 2", "Image 3
                                             hasElevator:true, hasGym:false,
                                             age:Int.random (in: 1...4),
                                             location: City.riyadh.coordinate,
-                                         saleCategory:.rent, city:.riyadh, type: .apartment,
+                                         saleCategory:.rent, city:.riyadh, type: .school,
                                             offer: .monthly, isAvailable: true,
                                           price: Int.random (in: 1000...10000),
                                          videoUrlString:"https://bit.ly/swswift")

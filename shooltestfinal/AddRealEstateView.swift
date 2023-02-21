@@ -40,6 +40,8 @@ struct AddRealEstateView: View {
     @Binding var isShowingAddingRealEstateView: Bool
 
     @Environment(\.presentationMode) private var presentationMode
+    var characterLimit = 20
+
     var body: some View {
         NavigationView{
             ScrollView{
@@ -92,6 +94,7 @@ struct AddRealEstateView: View {
                                                  placeholderText: "How many students in class",
                                                  text: $viewModel.realEstate.EfstudentsNO)
                                 .keyboardType(.numberPad)
+
                                 
                                 Text("Fees:")
                                 CustomInputField(imageName: "dollarsign.circle",
@@ -106,23 +109,22 @@ struct AddRealEstateView: View {
                             }.padding(.horizontal , 16)
                             Divider()
                             
-                            VStack(alignment: .leading){
+                            VStack{
                                 
                                 CustomTitle(title: "Conacat Information")
                                 CustomInputField(imageName: "phone",
                                                  placeholderText: "05XXXXXXXX",
                                                  text: $viewModel.realEstate.EfPhoneNu)
                                 .keyboardType(.numberPad)
+//                                .limitTextLength($viewModel.realEstate.EfPhoneNu, to: 20)
+
                                 
                                 
                                 
                                 CustomInputField(imageName: "envelope",
                                                  placeholderText: "Email",
                                                  text: $viewModel.realEstate.Efemail)
-                                
-                                
-                                
-                                
+
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 5)
                                         .stroke(Color.white,lineWidth: 0.2)
@@ -237,144 +239,147 @@ struct AddRealEstateView: View {
                 
                 
    
-                VStack(alignment: .center) {
-                    HStack {
-                        Text("Appliances")
-                            .foregroundColor(.orange)
-                            .font(.title)
-                        Spacer()
-                    }
-                    
-                    HStack(spacing: 12){
-                        
-                        Menu {
-                            ForEach(0...10, id: \.self) { beds in
-                                Button {
-                                    viewModel.realEstate.beds = beds
-                                } label:  {
-                                    switch beds {
-                                    case 0,1:
-                                        Text("\(beds) Bed")
-                                    default:
-                                        Text("\(beds) Beds")
-                                    }
-                                }
-                            }
-                        } label: {
-                            VStack {
-                                Image(systemName: "bed.double.fill")
-                                    .font(.system(size: 18, weight: .semibold))
-                                HStack(spacing: 2) {
-                                    Image(systemName: "chevron.down")
-                                    Text("Beds: \(viewModel.realEstate.beds)")
-                                        .font(.system(size: 14, weight: .semibold))
-                                        .minimumScaleFactor(0.5)
-                                }
-                            }
-                            .foregroundColor(.white)
-                            .frame(width: 90, height: 50)
-                            .background(Color.blue)
-                            .cornerRadius(8)
-                        }
-                        
-                        Menu {
-                            ForEach(0...10, id: \.self) { baths in
-                                Button {
-                                    viewModel.realEstate.baths = baths
-                                } label:  {
-                                    switch baths {
-                                    case 0,1:
-                                        Text("\(baths) bath")
-                                    default:
-                                        Text("\(baths) Baths")
-                                    }
-                                }
-                            }
-                        } label: {
-                            VStack {
-                                Image(systemName: "shower.fill")
-                                    .font(.system(size: 18, weight: .semibold))
-                                HStack(spacing: 2) {
-                                    Image(systemName: "chevron.down")
-                                    Text("Baths: \(viewModel.realEstate.baths)")
-                                        .font(.system(size: 14, weight: .semibold))
-                                        .minimumScaleFactor(0.5)
-                                }
-                            }
-                            .foregroundColor(.white)
-                            .frame(width: 90, height: 50)
-                            .background(Color.orange)
-                            .cornerRadius(8)
-                        }
-                        
-                        Menu {
-                            ForEach(0...10, id: \.self) { livingRooms in
-                                Button {
-                                    viewModel.realEstate.livingRooms = livingRooms
-                                } label:  {
-                                    switch livingRooms {
-                                    case 0,1:
-                                        Text("\(livingRooms) livingRoom")
-                                    default:
-                                        Text("\(livingRooms) livingRooms")
-                                    }
-                                }
-                            }
-                        } label: {
-                            VStack {
-                                Image(systemName: "sofa.fill")
-                                    .font(.system(size: 18, weight: .semibold))
-                                HStack(spacing: 2) {
-                                    Image(systemName: "chevron.down")
-                                    Text("Rooms: \(viewModel.realEstate.livingRooms)")
-                                        .font(.system(size: 14, weight: .semibold))
-                                        .minimumScaleFactor(0.5)
-                                }
-                            }
-                            .foregroundColor(.white)
-                            .frame(width: 90, height: 50)
-                            .background(Color.purple)
-                            .cornerRadius(8)
-                        }
-                        
-                        Menu {
-                            ForEach((50...2000).filter{$0.isMultiple(of: 50)}, id: \.self) { spaces in
-                                Button {
-                                    viewModel.realEstate.space = spaces
-                                } label:  {
-                                    switch spaces {
-                                    case 0,1:
-                                        Text("\(spaces) space")
-                                    default:
-                                        Text("\(spaces) spaces")
-                                    }
-                                }
-                            }
-                        } label: {
-                            VStack {
-                                Image(systemName: "ruler.fill")
-                                    .font(.system(size: 18, weight: .semibold))
-                                HStack(spacing: 2) {
-                                    Image(systemName: "chevron.down")
-                                    Text("Area: \(viewModel.realEstate.space)")
-                                        .font(.system(size: 14, weight: .semibold))
-                                        .minimumScaleFactor(0.5)
-                                }
-                            }
-                            .foregroundColor(.white)
-                            .frame(width: 90, height: 50)
-                            .background(Color.gray)
-                            .cornerRadius(8)
-                        }
-                    }
-                    
-                    
-                }.padding(.horizontal, 4)
+//                VStack(alignment: .center) {
+//                    HStack {
+//                        Text("Appliances")
+//                            .foregroundColor(.orange)
+//                            .font(.title)
+//                        Spacer()
+//                    }
+//
+//                    HStack(spacing: 12){
+//
+//                        Menu {
+//                            ForEach(0...10, id: \.self) { beds in
+//                                Button {
+//                                    viewModel.realEstate.beds = beds
+//                                } label:  {
+//                                    switch beds {
+//                                    case 0,1:
+//                                        Text("\(beds) Bed")
+//                                    default:
+//                                        Text("\(beds) Beds")
+//                                    }
+//                                }
+//                            }
+//                        } label: {
+//                            VStack {
+//                                Image(systemName: "bed.double.fill")
+//                                    .font(.system(size: 18, weight: .semibold))
+//                                HStack(spacing: 2) {
+//                                    Image(systemName: "chevron.down")
+//                                    Text("Beds: \(viewModel.realEstate.beds)")
+//                                        .font(.system(size: 14, weight: .semibold))
+//                                        .minimumScaleFactor(0.5)
+//                                }
+//                            }
+//                            .foregroundColor(.white)
+//                            .frame(width: 90, height: 50)
+//                            .background(Color.blue)
+//                            .cornerRadius(8)
+//                        }
+//
+//                        Menu {
+//                            ForEach(0...10, id: \.self) { baths in
+//                                Button {
+//                                    viewModel.realEstate.baths = baths
+//                                } label:  {
+//                                    switch baths {
+//                                    case 0,1:
+//                                        Text("\(baths) bath")
+//                                    default:
+//                                        Text("\(baths) Baths")
+//                                    }
+//                                }
+//                            }
+//                        } label: {
+//                            VStack {
+//                                Image(systemName: "shower.fill")
+//                                    .font(.system(size: 18, weight: .semibold))
+//                                HStack(spacing: 2) {
+//                                    Image(systemName: "chevron.down")
+//                                    Text("Baths: \(viewModel.realEstate.baths)")
+//                                        .font(.system(size: 14, weight: .semibold))
+//                                        .minimumScaleFactor(0.5)
+//                                }
+//                            }
+//                            .foregroundColor(.white)
+//                            .frame(width: 90, height: 50)
+//                            .background(Color.orange)
+//                            .cornerRadius(8)
+//                        }
+//
+//                        Menu {
+//                            ForEach(0...10, id: \.self) { livingRooms in
+//                                Button {
+//                                    viewModel.realEstate.livingRooms = livingRooms
+//                                } label:  {
+//                                    switch livingRooms {
+//                                    case 0,1:
+//                                        Text("\(livingRooms) livingRoom")
+//                                    default:
+//                                        Text("\(livingRooms) livingRooms")
+//                                    }
+//                                }
+//                            }
+//                        } label: {
+//                            VStack {
+//                                Image(systemName: "sofa.fill")
+//                                    .font(.system(size: 18, weight: .semibold))
+//                                HStack(spacing: 2) {
+//                                    Image(systemName: "chevron.down")
+//                                    Text("Rooms: \(viewModel.realEstate.livingRooms)")
+//                                        .font(.system(size: 14, weight: .semibold))
+//                                        .minimumScaleFactor(0.5)
+//                                }
+//                            }
+//                            .foregroundColor(.white)
+//                            .frame(width: 90, height: 50)
+//                            .background(Color.purple)
+//                            .cornerRadius(8)
+//                        }
+//
+//                        Menu {
+//                            ForEach((50...2000).filter{$0.isMultiple(of: 50)}, id: \.self) { spaces in
+//                                Button {
+//                                    viewModel.realEstate.space = spaces
+//                                } label:  {
+//                                    switch spaces {
+//                                    case 0,1:
+//                                        Text("\(spaces) space")
+//                                    default:
+//                                        Text("\(spaces) spaces")
+//                                    }
+//                                }
+//                            }
+//                        } label: {
+//                            VStack {
+//                                Image(systemName: "ruler.fill")
+//                                    .font(.system(size: 18, weight: .semibold))
+//                                HStack(spacing: 2) {
+//                                    Image(systemName: "chevron.down")
+//                                    Text("Area: \(viewModel.realEstate.space)")
+//                                        .font(.system(size: 14, weight: .semibold))
+//                                        .minimumScaleFactor(0.5)
+//                                }
+//                            }
+//                            .foregroundColor(.white)
+//                            .frame(width: 90, height: 50)
+//                            .background(Color.gray)
+//                            .cornerRadius(8)
+//                        }
+//                    }
+//
+//
+//                }.padding(.horizontal, 4)
                 
 
                 Divider()
                 
                 AmentitiesAddRealEstateView(viewModel: viewModel)
+                    .padding(.bottom)
+                Divider()
+                    .padding(.bottom)
                 Group{
               
                     Group{
@@ -402,10 +407,9 @@ struct AddRealEstateView: View {
                                     }
                                 }
                                 
-                            }.padding(.horizontal , 4)
-                        }.padding(.horizontal, 4)
+                            }
+                        }.padding(.horizontal, 8)
                         
-//                        Divider()
                         
                         VStack{
 //                            HStack{
@@ -435,56 +439,56 @@ struct AddRealEstateView: View {
                                     }
                                 }
                                 
-                            }.padding(.horizontal , 4)
-                        }.padding(.horizontal, 4)
+                            }
+                        }.padding(.horizontal, 8)
+                            .padding(.bottom)
+//                        Divider()
+                        
+//                        VStack{
+////                            HStack{
+////                                Text("sale: ")
+////                                    .foregroundColor(.yellow)
+////                                Spacer()
+////                            }
+////                            HStack{
+////                                Text("offer: ")
+////                                Spacer()
+////                                Menu {
+////                                    ForEach(SaleCategory.allCases, id:\.self){ saleCategory in
+////                                        Button {
+////                                            viewModel.realEstate.saleCategory = saleCategory
+////                                        } label: {
+////                                            Label(saleCategory.title, systemImage: saleCategory.imageName)
+////                                        }
+////
+////                                    }
+////                                } label: {
+////                                    HStack{
+////                                        Text( viewModel.realEstate.saleCategory.title)
+////                                        Image(systemName:  viewModel.realEstate.saleCategory.imageName)
+////                                        Image(systemName: "chevron.down")
+////                                            .foregroundColor(.white)
+////                                    }
+////                                }
+////
+////                            }.padding(.horizontal , 4)
+//                        }.padding(.horizontal, 4)
                         
 //                        Divider()
                         
-                        VStack{
+//                        VStack{
 //                            HStack{
-//                                Text("sale: ")
+//                                Text("price: ")
 //                                    .foregroundColor(.yellow)
 //                                Spacer()
 //                            }
 //                            HStack{
-//                                Text("offer: ")
+//                                Text("amout: ")
 //                                Spacer()
-//                                Menu {
-//                                    ForEach(SaleCategory.allCases, id:\.self){ saleCategory in
-//                                        Button {
-//                                            viewModel.realEstate.saleCategory = saleCategory
-//                                        } label: {
-//                                            Label(saleCategory.title, systemImage: saleCategory.imageName)
-//                                        }
-//
-//                                    }
-//                                } label: {
-//                                    HStack{
-//                                        Text( viewModel.realEstate.saleCategory.title)
-//                                        Image(systemName:  viewModel.realEstate.saleCategory.imageName)
-//                                        Image(systemName: "chevron.down")
-//                                            .foregroundColor(.white)
-//                                    }
-//                                }
-//
+//                                TextField("0,0" , value: $viewModel.realEstate.price, format: .number)
+//                                
 //                            }.padding(.horizontal , 4)
-                        }.padding(.horizontal, 4)
-                        
-                        Divider()
-                        
-                        VStack{
-                            HStack{
-                                Text("price: ")
-                                    .foregroundColor(.yellow)
-                                Spacer()
-                            }
-                            HStack{
-                                Text("amout: ")
-                                Spacer()
-                                TextField("0,0" , value: $viewModel.realEstate.price, format: .number)
-                                
-                            }.padding(.horizontal , 4)
-                        }.padding(.horizontal, 4)
+//                        }.padding(.horizontal, 4)
                     }.padding(.horizontal, 11)
                
                 mapUIkitView(realEstate: $viewModel.realEstate)
@@ -503,7 +507,7 @@ struct AddRealEstateView: View {
 //                        
                     )     .onChange(of: viewModel.realEstate.city) { _ in
                             self.viewModel.refreshMapViewId = UUID()
-                                              }
+                    }.padding(.bottom)
                
 
 //                VStack{
@@ -520,11 +524,12 @@ struct AddRealEstateView: View {
                                      isShowingAddingRealEstateView: $isShowingAddingRealEstateView)
                     
                 } label: {
-                    Text("Show sample before")
+                    Text("Show Sample before")
+                        .font(.headline)
                         .foregroundColor(.white)
-                        .frame(width: 280 , height: 40)
-                    
-                        .background(Color.blue)
+                        .frame(width: 358, height: 48)
+                        .background(Color("Sage"))
+                        .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
                 }
 
                
@@ -534,7 +539,7 @@ struct AddRealEstateView: View {
 //                persininfo(viewModel: viewModel)
                 
             }
-            .navigationTitle(" add school")
+            .navigationTitle("Add school")
                 .navigationBarTitleDisplayMode(.large)
                 .toolbar{
             ToolbarItem(placement: .navigationBarLeading) {
@@ -635,172 +640,320 @@ struct AmentitiesAddRealEstateView: View {
 
     var viewModel: AddRealEstateViewModel
 
+
+
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                Text("Amentities")
-                    .foregroundColor(.orange)
-                    .font(.title)
-                Spacer()
-            }
+            CustomTitle(title: "Amentities")
+                .padding(.top)
+            
+            Group{
+                    HStack(spacing: 18){
 
-            HStack(spacing: 8){
-
-                Button {
-                    viewModel.realEstate.isSmart.toggle()
-                } label: {
-                    VStack(alignment: .center, spacing: 2) {
-                        Image(systemName: "entry.lever.keypad.fill")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 30, height: 30)
-
-                        Text("Smart")
-                            .font(.system(size: 14, weight: .semibold))
-                            .padding(.top, 8)
-
-                        Image(systemName: viewModel.realEstate.isSmart ? "checmark.square.fill" : "square")
-                            .foregroundColor(viewModel.realEstate.isSmart ? .green : .black)
-                            .padding(.top, 4)
-                    }.frame(width: 60)
-                        .foregroundColor(.black)
-                }.buttonStyle(.borderless)
-
-
-                Divider()
-
-                Button {
-                    viewModel.realEstate.hasWiFi.toggle()
-                } label: {
-                    VStack(alignment: .center, spacing: 2) {
-                        Image(systemName: "wifi")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 30, height: 30)
-
-                        Text("Wifi")
-                            .font(.system(size: 14, weight: .semibold))
-                            .padding(.top, 8)
-
-                        Image(systemName: viewModel.realEstate.hasWiFi ? "checmark.square.fill" : "square")
-                            .foregroundColor(viewModel.realEstate.hasWiFi ? .green : .black)
-                            .padding(.top, 4)
-                    }.frame(width: 60)
-                        .foregroundColor(.black)
-                }.buttonStyle(.borderless)
-
-                Divider()
-
-                Button {
-                    viewModel.realEstate.hasPool.toggle()
-                } label: {
-                    VStack(alignment: .center, spacing: 2) {
-                        Image(systemName: "figure.pool.swim")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 30, height: 30)
-
-                        Text("Pool")
-                            .font(.system(size: 14, weight: .semibold))
-                            .padding(.top, 8)
-
-                        Image(systemName: viewModel.realEstate.hasPool ? "checmark.square.fill" : "square")
-                            .foregroundColor(viewModel.realEstate.hasPool ? .green : .black)
-                            .padding(.top, 4)
-                    }.frame(width: 60)
-                        .foregroundColor(.black)
-                }.buttonStyle(.borderless)
-
-                Divider()
-
-                Button {
-                    viewModel.realEstate.hasElevator.toggle()
-                } label: {
-                    VStack(alignment: .center, spacing: 2) {
-                        Image(systemName: "figure.walk.arrival")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 30, height: 30)
-
-                        Text("Elevator")
-                            .font(.system(size: 14, weight: .semibold))
-                            .padding(.top, 8)
-
-                        Image(systemName: viewModel.realEstate.hasElevator ? "checmark.square.fill" : "square")
-                            .foregroundColor(viewModel.realEstate.hasElevator ? .green : .black)
-                            .padding(.top, 4)
-                    }.frame(width: 60)
-                        .foregroundColor(.black)
-                }.buttonStyle(.borderless)
-
-                Divider()
-
-                Button {
-                    viewModel.realEstate.hasGym.toggle()
-                } label: {
-                    VStack(alignment: .center, spacing: 2) {
-                        Image(systemName: "dumbbell.fill")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 30, height: 30)
-
-                        Text("Gym")
-                            .font(.system(size: 14, weight: .semibold))
-                            .padding(.top, 8)
-
-                        Image(systemName: viewModel.realEstate.hasGym ? "checmark.square.fill" : "square")
-                            .foregroundColor(viewModel.realEstate.hasGym ? .green : .black)
-                            .padding(.top, 4)
-                    }.frame(width: 60)
-                        .foregroundColor(.black)
-                }.buttonStyle(.borderless)
-            }
-
-            HStack {
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.gray.opacity(0.2))
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 1)
-
-                Menu {
-                    ForEach(0...10, id: \.self) { age in
                         Button {
-                            viewModel.realEstate.age = age
+                            viewModel.realEstate.hasWiFi.toggle()
                         } label: {
-                            switch age {
-                            case 0,1:
-                                Text("\(age) Year")
-                            default:
-                                Text("\(age) Years")
+                            
+                            ZStack{
+                                Rectangle()
+                                    .fill(.white)
+                                    .frame(width: 80, height: 60)
+                                    .cornerRadius(8)
+                                    .shadow(color: Color(.lightGray), radius:3, x:0, y:2)
+                                
+                                VStack{
+                                    Image(systemName: viewModel.realEstate.isSmart ? "lock.fill" : "lock")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 20, height: 20)
+                                    
+                                    
+                                    Text("Smart")
+                                        .font(.system(size: 12, weight: .semibold))
+                                    
+                                }
+                                
+                                    .padding()
+                                
                             }
+
+                        }
+                        Button {
+                            viewModel.realEstate.hasGym.toggle()
+                        } label: {
+                            
+                            ZStack{
+                                Rectangle()
+                                    .fill(.white)
+                                    .frame(width: 80, height: 60)
+                                    .cornerRadius(8)
+                                    .shadow(color: Color(.lightGray), radius:3, x:0, y:2)
+                                VStack{
+                                    Image(systemName: viewModel.realEstate.hasGym ? "person.fill" : "person")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 20, height: 20)
+                                    
+                                    Text("Smart")
+                                        .font(.system(size: 12, weight: .semibold))
+                                    
+                                }
+                                
+                                    .padding()
+                                
+                            }
+
+                        }
+                        Button {
+                            viewModel.realEstate.hasPool.toggle()
+                        } label: {
+                            
+                            ZStack{
+                                Rectangle()
+                                    .fill(.white)
+                                    .frame(width: 80, height: 60)
+                                    .cornerRadius(8)
+                                    .shadow(color: Color(.lightGray), radius:3, x:0, y:2)
+                                VStack{
+                                    Image(systemName: viewModel.realEstate.hasPool ? "figure.pool.swim": "water.waves.slash")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 20, height: 20)
+                                    
+                                    Text("Smart")
+                                        .font(.system(size: 12, weight: .semibold))
+                                    
+                                }
+                                
+                                    .padding()
+                                
+                            }
+
+                        }
+                        Button {
+                            viewModel.realEstate.hasElevator.toggle()
+                        } label: {
+                            
+                            ZStack{
+                                Rectangle()
+                                    .fill(.white)
+                                    .frame(width: 80, height: 60)
+                                    .cornerRadius(8)
+                                    .shadow(color: Color(.lightGray), radius:3, x:0, y:2)
+                                VStack{
+                                    Image(systemName: viewModel.realEstate.hasElevator ? "heart.fill" : "heart")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 20, height: 20)
+                                    
+                                    Text("Smart")
+                                        .font(.system(size: 12, weight: .semibold))
+                                    
+                                }
+                                
+                                    .padding()
+                                
+                            }
+
                         }
                     }
-                } label: {
-                    VStack(spacing: 2) {
-                        Image(systemName: "building.2.fill")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 30, height: 30)
+                
+                
+                //                    VStack(alignment: .center, spacing: 2) {
+                //                        Rectangle()
+                //                            .fill(.white)
+                //                            .frame(width: 66, height: 47)
+                //                            .cornerRadius(8)
+                //                            .shadow(color: Color(.lightGray), radius:3, x:0, y:2)
+                //
+                //                        Image(systemName: viewModel.realEstate.isSmart ? "entry.lever.keypad.fill" : "entry.lever.keypad")
+                //                            .resizable()
+                //                            .scaledToFill()
+                //                            .frame(width: 24, height: 24)
+                //
+                //                        Text("Smart")
+                //                            .font(.system(size: 12, weight: .semibold))
+                //                            .padding(.top, 8)
+                //
+                //
+                ////                        Image(systemName: viewModel.realEstate.isSmart ? "checmark.square.fill" : "square")
+                ////                            .foregroundColor(viewModel.realEstate.isSmart ? .green : .black)
+                ////                            .padding(.top, 4)
+                //                    }
+                //
+                //                        //
+                //                        .foregroundColor(Color("Sage"))
+                
+                
+                //                            }
+                //                .frame(width: 66 , height: 47)
+                //                .padding()
+                //                .background(.white)
+                //                                                        .cornerRadius(8)
+                //                                                        .shadow(color: Color(.lightGray), radius:3, x:0, y:2)
+                
+                
+                
+                //            HStack(spacing: 8){
+                //
+                //                Button {
+                //                    viewModel.realEstate.isSmart.toggle()
+                //                } label: {
+                //                    VStack(alignment: .center, spacing: 2) {
+                //                        Image(systemName: "entry.lever.keypad.fill")
+                //                            .resizable()
+                //                            .scaledToFill()
+                //                            .frame(width: 30, height: 30)
+                //
+                //                        Text("Smart")
+                //                            .font(.system(size: 14, weight: .semibold))
+                //                            .padding(.top, 8)
+                //
+                //                        Image(systemName: viewModel.realEstate.isSmart ? "checmark.square.fill" : "square")
+                //                            .foregroundColor(viewModel.realEstate.isSmart ? .green : .black)
+                //                            .padding(.top, 4)
+                //                    }.frame(width: 60)
+                //                        .foregroundColor(.black)
+                //                }.buttonStyle(.borderless)
+                //
+                //
+                //                Divider()
+                //
+                //                Button {
+                //                    viewModel.realEstate.hasWiFi.toggle()
+                //                } label: {
+                //                    VStack(alignment: .center, spacing: 2) {
+                //                        Image(systemName: "wifi")
+                //                            .resizable()
+                //                            .scaledToFill()
+                //                            .frame(width: 30, height: 30)
+                //
+                //                        Text("Wifi")
+                //                            .font(.system(size: 14, weight: .semibold))
+                //                            .padding(.top, 8)
+                //
+                //                        Image(systemName: viewModel.realEstate.hasWiFi ? "checmark.square.fill" : "square")
+                //                            .foregroundColor(viewModel.realEstate.hasWiFi ? .green : .black)
+                //                            .padding(.top, 4)
+                //                    }.frame(width: 60)
+                //                        .foregroundColor(.black)
+                //                }.buttonStyle(.borderless)
+                //
+                //                Divider()
+                //
+                //                Button {
+                //                    viewModel.realEstate.hasPool.toggle()
+                //                } label: {
+                //                    VStack(alignment: .center, spacing: 2) {
+                //                        Image(systemName: "figure.pool.swim")
+                //                            .resizable()
+                //                            .scaledToFill()
+                //                            .frame(width: 30, height: 30)
+                //
+                //                        Text("Pool")
+                //                            .font(.system(size: 14, weight: .semibold))
+                //                            .padding(.top, 8)
+                //
+                //                        Image(systemName: viewModel.realEstate.hasPool ? "checmark.square.fill" : "square")
+                //                            .foregroundColor(viewModel.realEstate.hasPool ? .green : .black)
+                //                            .padding(.top, 4)
+                //                    }.frame(width: 60)
+                //                        .foregroundColor(.black)
+                //                }.buttonStyle(.borderless)
+                //
+                //                Divider()
+                //
+                //                Button {
+                //                    viewModel.realEstate.hasElevator.toggle()
+                //                } label: {
+                //                    VStack(alignment: .center, spacing: 2) {
+                //                        Image(systemName: "figure.walk.arrival")
+                //                            .resizable()
+                //                            .scaledToFill()
+                //                            .frame(width: 30, height: 30)
+                //
+                //                        Text("Elevator")
+                //                            .font(.system(size: 14, weight: .semibold))
+                //                            .padding(.top, 8)
+                //
+                //                        Image(systemName: viewModel.realEstate.hasElevator ? "checmark.square.fill" : "square")
+                //                            .foregroundColor(viewModel.realEstate.hasElevator ? .green : .black)
+                //                            .padding(.top, 4)
+                //                    }.frame(width: 60)
+                //                        .foregroundColor(.black)
+                //                }.buttonStyle(.borderless)
+                //
+                //                Divider()
+                //
+                //                Button {
+                //                    viewModel.realEstate.hasGym.toggle()
+                //                } label: {
+                //                    VStack(alignment: .center, spacing: 2) {
+                //                        Image(systemName: "dumbbell.fill")
+                //                            .resizable()
+                //                            .scaledToFill()
+                //                            .frame(width: 30, height: 30)
+                //
+                //                        Text("Gym")
+                //                            .font(.system(size: 14, weight: .semibold))
+                //                            .padding(.top, 8)
+                //
+                //                        Image(systemName: viewModel.realEstate.hasGym ? "checmark.square.fill" : "square")
+                //                            .foregroundColor(viewModel.realEstate.hasGym ? .green : .black)
+                //                            .padding(.top, 4)
+                //                    }.frame(width: 60)
+                //                        .foregroundColor(.black)
+                //                }.buttonStyle(.borderless)
+                //            }
+                
+                //                                HStack {
+                //                                    RoundedRectangle(cornerRadius: 12)
+                //                                        .fill(Color.gray.opacity(0.2))
+                //                                        .frame(maxWidth: .infinity)
+                //                                        .frame(height: 1)
+                //
+                //                                    Menu {
+                //                                        ForEach(0...10, id: \.self) { age in
+                //                                            Button {
+                //                                                viewModel.realEstate.age = age
+                //                                            } label: {
+                //                                                switch age {
+                //                                                case 0,1:
+                //                                                    Text("\(age) Year")
+                //                                                default:
+                //                                                    Text("\(age) Years")
+                //                                                }
+                //                                            }
+                //                                        }
+                //                                    } label: {
+                //                                        VStack(spacing: 2) {
+                //                                            Image(systemName: "building.2.fill")
+                //                                                .resizable()
+                //                                                .scaledToFill()
+                //                                                .frame(width: 30, height: 30)
+                //
+                //                                            HStack(spacing: 2) {
+                //                                                Image(systemName: "chevron.down")
+                //                                                Text("\(viewModel.realEstate.age) Years")
+                //                                                    .font(.system(size: 14, weight: .semibold))
+                //                                            }.padding(.top, 6)
+                //                                        }.padding(.horizontal, 10)
+                //                                    }.foregroundColor(.white)
+                //                                        .padding(.top, 8)
+                //
+                //
+                //                                    RoundedRectangle(cornerRadius: 12)
+                //                                        .fill(Color.gray.opacity(0.2))
+                //                                        .frame(maxWidth: .infinity)
+                //                                        .frame(height: 1)
+                //                                }.padding(.top, 16)
+            }
+                            }.padding(.horizontal, 16)
+                        }
+                    
+        }
+ 
 
-                        HStack(spacing: 2) {
-                            Image(systemName: "chevron.down")
-                            Text("\(viewModel.realEstate.age) Years")
-                                .font(.system(size: 14, weight: .semibold))
-                        }.padding(.top, 6)
-                    }.padding(.horizontal, 10)
-                }.foregroundColor(.white)
-                    .padding(.top, 8)
-
-
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.gray.opacity(0.2))
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 1)
-            }.padding(.top, 16)
-
-        }.padding(.horizontal, 4)
-    }
-}
 
 
 import MapKit
@@ -840,4 +993,24 @@ struct mapUIkitView: UIViewRepresentable{
             self.parent.realEstate.location = mapView.centerCoordinate
         }
     }
+}
+struct TextLengthLimiter: ViewModifier {
+  @Binding var text: String
+  let maxLength: Int
+
+  func body(content: Content) -> some View {
+    content
+      .onReceive(text.publisher.collect()) { output in
+        text = String(output.prefix(maxLength)) // HERE
+      }
+  }
+
+}
+
+extension TextField {
+  func limitTextLength(_ text: Binding<String>,
+                       to maxLength: Int) -> some View {
+    self.modifier(TextLengthLimiter(text: text,
+                                    maxLength: maxLength))
+  }
 }

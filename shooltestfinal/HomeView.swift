@@ -32,7 +32,7 @@ struct HomeView: View {
     @State var selectedRealEstate : RealEstate?
     
     
-    @State var popupBGColor = Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))
+    @State var popupBGColor = Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
     @StateObject var locationManager = LocationManager()
     
     @State var isShowingProfileView: Bool = false
@@ -61,97 +61,191 @@ struct HomeView: View {
                                 WebImage(url: URL(string: realEstate.images.first ?? "" ))
                                     .resizable()
                                     .placeholder {
-                                    Rectangle().foregroundColor(.gray)
-                                }
-                                .indicator(.activity)
+                                        Rectangle().foregroundColor(.gray)
+                                        
+                                    }
+                                    .indicator(.activity)
                                     .scaledToFill()
                                     .frame(width: 100 , height: 110)
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
+                                    .padding(.leading)
+                                
                             } else {
-                            Image(systemName: "photo")
-                                  
+                                Image(systemName: "photo")
+                                    .padding(.leading)
                             }
-                            Divider()
-                           
-                            
-                            VStack(alignment: .leading , spacing: 4){
-//                                HStack{
-//                                    Text("\(realEstate.price)")
-//                                    HStack{
-//                                        Image(systemName:realEstate.saleCategory.imageName)
-//                                        Text(realEstate.saleCategory.title)
-//                                    }
-                                    
-//                                    .foregroundColor(.cyan)
-                                    
-//                                }
+                            //                            Divider()
+//                            BubbleView()
+                            Group{
+                            VStack(alignment: .leading , spacing: 8){
+                                
+                                Text(realEstate.EfName)
+                                    .foregroundColor(Color("Sage"))
+                                    .font(.callout)
+                                
                                 Text(realEstate.description)
+                                    .foregroundColor(Color("OnyxGray"))
+                                    .font(.footnote)
+                                
                                 //   عدد                     سطور عقار وصف المدرسه
-                                    .lineLimit(3)
+                                    .lineLimit(2)
                                 //                            طريقه امتداد الكلام في الوصف
                                     .fixedSize(horizontal: false, vertical: true)
                                 //                                .padding(.top, 2)
                                     .multilineTextAlignment(.leading)
-                                HStack(spacing: 4){
-                                    Image(systemName:realEstate.type.imageName)
-                                    Text(realEstate.type.title)
+                                
+                                
+                                HStack(spacing: 10 ){
                                     
-                                }
+                                    Spacer()
+                                    VStack(spacing: 2 ){
+                                        Image(systemName: realEstate.isSmart ? "desktopcomputer": "")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 14 , height: 14)
+                                        
+                                    }.frame(width: 20)
+                                    VStack(spacing: 2 ){
+                                        Image(systemName:realEstate.hasPool ? "figure.pool.swim": "")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 14 , height: 14)
+                                        
+                                    }.frame(width: 20)
+                                    VStack(spacing: 2 ){
+                                        Image(systemName: realEstate.hasWiFi ? "bus.fill": "")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 14 , height: 14)
+                                        
+                                    }.frame(width: 20)
+                                    VStack(spacing: 2 ){
+                                        Image(systemName:realEstate.hasGym ? "dumbbell.fill": "")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 14 , height: 14)
+                                        
+                                    }.frame(width: 20)
+                                    
+                                }.padding(.trailing)
                                 
-                            
-                                Divider()
-//                                HStack{
-//                                    HStack(spacing: 4){
-//                                        Image(systemName: "bed.double")
-//                                        Text("\(realEstate.beds)")
-//                                    }.foregroundColor(.white)
-//                                        .frame(width: 50 , height: 28)
-//                                        .background(Color.blue)
-//                                        .cornerRadius(8)
-//                                    HStack{
-//                                        HStack(spacing: 4){
-//                                            Image(systemName: "shower.fill")
-//                                            Text("\(realEstate.baths)")
-//                                        }.foregroundColor(.white)
-//                                            .frame(width: 50 , height: 28)
-//                                            .background(Color.orange )
-//                                            .cornerRadius(8)
+                                .foregroundColor(Color("Sage"))
+                            }        .padding()
+                                .frame(width: 250, height: 100)
+                        }
+//                            Group{
+//                                VStack(alignment: .leading , spacing: 8){
+//                                    //                                HStack{
+//                                    //                                    Text("\(realEstate.price)")
+//                                    //                                    HStack{
+//                                    //                                        Image(systemName:realEstate.saleCategory.imageName)
+//                                    //                                        Text(realEstate.saleCategory.title)
+//                                    //                                    }
 //
-//                                    }
-//                                        HStack(spacing: 4){
-//                                            Image(systemName: "photo.on.rectangle.angled")
-//                                            Text("\(realEstate.images.count)")
-//                                        }.foregroundColor(.white)
-//                                            .frame(width: 50 , height: 28)
-//                                            .background(Color.purple )
-//                                            .cornerRadius(8)
+//                                    //                                    .foregroundColor(.cyan)
 //
-//                                    HStack(spacing: 4){
-//                                        Image(systemName: "ruler.fill")
-//                                        Text("\(realEstate.space)")
-//                                    }.foregroundColor(.white)
-//                                        .frame(width: 50 , height: 28)
-//                                        .background(Color.gray )
-//                                        .cornerRadius(8)
-                                Group{
-                                    HStack(spacing: 10 ){
-                                        VStack(spacing: 2 ){
-                                            Image(systemName: realEstate.isSmart ? "entry.lever.keypad.fill": "")
-                                                .resizable()
-                                                .scaledToFill()
-                                                .frame(width: 30 , height: 30)
-                                            
-                                        }.frame(width: 60)
-                                    }
-                                }
+//                                    //                                }
+//                                    Text(realEstate.EfName)
+//                                        .foregroundColor(Color("Sage"))
+//
+//                                    Text(realEstate.description)
+//                                        .foregroundColor(Color("OnyxGray"))
+//                                    //   عدد                     سطور عقار وصف المدرسه
+//                                        .lineLimit(3)
+//                                    //                            طريقه امتداد الكلام في الوصف
+//                                        .fixedSize(horizontal: false, vertical: true)
+//                                    //                                .padding(.top, 2)
+//                                        .multilineTextAlignment(.leading)
 //
 //
 //
+//                                    //                                Divider()
+//                                    //                                HStack{
+//                                    //                                    HStack(spacing: 4){
+//                                    //                                        Image(systemName: "bed.double")
+//                                    //                                        Text("\(realEstate.beds)")
+//                                    //                                    }.foregroundColor(.white)
+//                                    //                                        .frame(width: 50 , height: 28)
+//                                    //                                        .background(Color.blue)
+//                                    //                                        .cornerRadius(8)
+//                                    //                                    HStack{
+//                                    //                                        HStack(spacing: 4){
+//                                    //                                            Image(systemName: "shower.fill")
+//                                    //                                            Text("\(realEstate.baths)")
+//                                    //                                        }.foregroundColor(.white)
+//                                    //                                            .frame(width: 50 , height: 28)
+//                                    //                                            .background(Color.orange )
+//                                    //                                            .cornerRadius(8)
+//                                    //
+//                                    //                                    }
+//                                    //                                        HStack(spacing: 4){
+//                                    //                                            Image(systemName: "photo.on.rectangle.angled")
+//                                    //                                            Text("\(realEstate.images.count)")
+//                                    //                                        }.foregroundColor(.white)
+//                                    //                                            .frame(width: 50 , height: 28)
+//                                    //                                            .background(Color.purple )
+//                                    //                                            .cornerRadius(8)
+//                                    //
+//                                    //                                    HStack(spacing: 4){
+//                                    //                                        Image(systemName: "ruler.fill")
+//                                    //                                        Text("\(realEstate.space)")
+//                                    //                                    }.foregroundColor(.white)
+//                                    //                                        .frame(width: 50 , height: 28)
+//                                    //                                        .background(Color.gray )
+//                                    //                                        .cornerRadius(8)
 //                                }
+//
+//                                Group{
+//                                    HStack(spacing: 10 ){
+//
+//                                        Spacer()
+//                                        VStack(spacing: 2 ){
+//                                            Image(systemName: realEstate.isSmart ? "desktopcomputer": "")
+//                                                .resizable()
+//                                                .scaledToFill()
+//                                                .frame(width: 24 , height: 24)
+//
+//                                        }.frame(width: 44)
+//                                        //                                            VStack(spacing: 2 ){
+//                                        //                                                Image(systemName: realEstate.hasWiFi ? "bus.fill": "")
+//                                        //                                                    .resizable()
+//                                        //                                                    .scaledToFill()
+//                                        //                                                    .frame(width: 24 , height: 24)
+//                                        //
+//                                        //                                            }.frame(width: 44)
+//                                        VStack(spacing: 2 ){
+//                                            Image(systemName: realEstate.hasPool ? "figure.pool.swim": "")
+//                                                .resizable()
+//                                                .scaledToFill()
+//                                                .frame(width: 24 , height: 24)
+//
+//                                        }.frame(width: 44)
+//                                        VStack(spacing: 2 ){
+//                                            Image(systemName: realEstate.hasElevator ? "figure.roll": "")
+//                                                .resizable()
+//                                                .scaledToFill()
+//                                                .frame(width: 24 , height: 24)
+//
+//                                        }.frame(width: 60)
+//                                        VStack(spacing: 2 ){
+//                                            Image(systemName: realEstate.hasGym ? "dumbbell.fill": "")
+//                                                .resizable()
+//                                                .scaledToFill()
+//                                                .frame(width: 24 , height: 24)
+//
+//                                        }.frame(width: 44)
+//
+//                                    }.padding(.top)
+//                                        .foregroundColor(Color("Sage"))
+//                                }
+//                            }
+    //
+    //
+    //
+    //                                }
+                                    
                                 
-                            }
                             
-                            Spacer()
                         
                         
                         }
@@ -264,7 +358,8 @@ struct HomeView: View {
                     Button {
                         isShowingAddingRealEstateView.toggle()
                     } label: {
-                        Text("add real Estate")
+                        Text("Add Facility")
+                            .bold()
                     }.padding(.leading , 155)
 
                     
@@ -289,18 +384,19 @@ struct HomeView: View {
                             .frame(width: 30, height: 30)
                     }
                     
-                    Divider()
-                    
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "line.3.horizontal.decrease")
-                        
-                            .frame(width: 18, height: 18)
-                    }
+//                    Divider()
+//
+//                    Button {
+//
+//                    } label: {
+//                        Image(systemName: "line.3.horizontal.decrease")
+//
+//                            .frame(width: 18, height: 18)
+//                    }
 
                 }
-                    .frame(width: 46, height: 140)
+                    .frame(width: 50, height: 50)
+//                    .frame(width: 46, height: 140)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
                     .background(Material.ultraThinMaterial)
                     .overlay(

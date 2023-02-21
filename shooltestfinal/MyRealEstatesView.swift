@@ -48,8 +48,8 @@ struct MyRealEstatesView: View {
                             //                                .padding(.top, 2)
                                 .multilineTextAlignment(.leading)
                             HStack(spacing: 4){
-                                Image(systemName: RealEstateType.apartment.imageName)
-                                Text(RealEstateType.apartment.title)
+                                Image(systemName: RealEstateType.school.imageName)
+                                Text(RealEstateType.school.title)
                                 
                             }
                             

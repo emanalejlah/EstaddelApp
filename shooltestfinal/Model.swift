@@ -50,51 +50,57 @@ enum SaleCategory: String, CaseIterable, Codable{
 }
 
 enum RealEstateType: String, CaseIterable , Codable {
-    case apartment
-    case house
-    case townHouse
-    case farm
-    case land
-    case building
-    case office
-    case room
-    case penthouse
-    case floor
-    case camp
-    case chalet
+    case school
+    case complex
+//    case apartment
+//    case house
+//    case townHouse
+//    case farm
+//    case land
+//    case building
+//    case office
+//    case room
+//    case penthouse
+//    case floor
+//    case camp
+//    case chalet
     
     var title: String {
         switch self{
-        case .apartment:  return "Apartment"
-        case .house:      return "House"
-        case .townHouse:  return "Town House"
-        case .farm:       return "Farm"
-        case .land:       return "Land"
-        case .building:   return "Building"
-        case .office:     return "Office"
-        case .room:       return "Room"
-        case .penthouse:  return "Penthouse"
-        case .floor:      return "Floor"
-        case .camp:       return "Camp"
-        case .chalet:     return "Chalet"
+        case .school:  return "School"
+        case .complex:  return "Complex"
+//        case .apartment:  return "Apartment"
+//        case .house:      return "House"
+//        case .townHouse:  return "Town House"
+//        case .farm:       return "Farm"
+//        case .land:       return "Land"
+//        case .building:   return "Building"
+//        case .office:     return "Office"
+//        case .room:       return "Room"
+//        case .penthouse:  return "Penthouse"
+//        case .floor:      return "Floor"
+//        case .camp:       return "Camp"
+//        case .chalet:     return "Chalet"
             
         }
     }
     
     var imageName: String {
         switch self{
-        case .apartment:  return "door.left.hand.closed"
-        case .house:      return "house.fill"
-        case .townHouse:  return "building.2.fill"
-        case .farm:       return "laurel.trailing"
-        case .land:       return "camera.macro"
-        case .building:   return "building.fill"
-        case .office:     return "briefcase.fill"
-        case .room:       return "sofa.fill"
-        case .penthouse:  return "building.2.crop.circle.fill"
-        case .floor:      return "door.garage.double.bay.closed"
-        case .camp:       return "tent.fill"
-        case .chalet:     return "pedestrian.gate.closed"
+        case .school:  return "building"
+        case .complex:  return "building.2"
+//        case .apartment:  return "door.left.hand.closed"
+//        case .house:      return "house.fill"
+//        case .townHouse:  return "building.2.fill"
+//        case .farm:       return "laurel.trailing"
+//        case .land:       return "camera.macro"
+//        case .building:   return "building.fill"
+//        case .office:     return "briefcase.fill"
+//        case .room:       return "sofa.fill"
+//        case .penthouse:  return "building.2.crop.circle.fill"
+//        case .floor:      return "door.garage.double.bay.closed"
+//        case .camp:       return "tent.fill"
+//        case .chalet:     return "pedestrian.gate.closed"
             
         }
     }
@@ -234,7 +240,7 @@ struct RealEstate: Codable, Equatable, Identifiable {
     
     var saleCategory          : SaleCategory = .rent
     var city                  : City = .arrass
-    var type                  : RealEstateType = .apartment
+    var type                  : RealEstateType = .school
     var offer                 : OfferType      = .yearly
     var isAvailable           : Bool = true
     var price                 : Int = 0
