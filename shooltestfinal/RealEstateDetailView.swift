@@ -50,13 +50,18 @@ struct RealEstateDetailView: View {
                             .stroke(Color.gray))
                         .padding(.bottom)
                     
-                    Text(realEstate.description)
-                        .font(.system(size: 17, weight: .semibold)).foregroundColor(Color("Sage"))
+
+
                     
                     VStack{
                         Text(realEstate.EfName)
+                            .font(.system(size: 17, weight: .semibold)).foregroundColor(Color("Sage"))
+                        Text(realEstate.EfCity)
                             .font(.system(size: 17, weight: .semibold)).foregroundColor(Color("Mandarin"))
                         
+                        Text(realEstate.description)
+                        .font(.system(size: 17, weight: .regular)).foregroundColor(Color("OnyxGray          "))
+                        .padding(.bottom)
                     }
                     
                     
@@ -66,34 +71,42 @@ struct RealEstateDetailView: View {
                         Image(systemName:"person" )
                             .font(.system(size: 25, weight: .regular))
                             .foregroundColor(Color("Sage"))
-                        Text(realEstate.EfName)
-                    }
+                        Text(realEstate.EfstudentsNO)
+
+                        Spacer()
+                    }                            .padding(.bottom)
+
                     
                     HStack{
                         Image(systemName:"dollarsign.circle" )
                             .font(.system(size: 25, weight: .regular))
                             .foregroundColor(Color("Sage"))
-                        Text(realEstate.EfPhoneNu)
+                        Text(realEstate.Efprice)
+
+                        Spacer()
+
                         
-                    }
+                    }                            .padding(.bottom)
+
                     
                     
                     
-                }.padding(.horizontal, 4)
+                }.padding(.horizontal, 16)
                 
             }
             
             Group{
                 
                 VStack(){
-                    Text("Conacat Information")
-                        .font(.system(size: 17, weight: .semibold))
-                    Divider()
+                    CustomTitle(title: "Conacat Information")
+//                    Text("Conacat Information")
+//                        .font(.system(size: 17, weight: .semibold))
                     HStack{
                         Image(systemName:"envelope" )
                             .font(.system(size: 25, weight: .regular))
                             .foregroundColor(Color("Sage"))
-                        Text(realEstate.EfName)
+                        Text(realEstate.Efemail)
+                        Spacer()
                     }
                     Divider()
                     HStack{
@@ -101,10 +114,11 @@ struct RealEstateDetailView: View {
                             .font(.system(size: 25, weight: .regular))
                             .foregroundColor(Color("Sage"))
                         Text(realEstate.EfPhoneNu)
-                        
+                        Spacer()
+
                     }
                     
-                }
+                }.padding(.horizontal, 16)
             }
           
 
