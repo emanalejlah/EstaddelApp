@@ -379,13 +379,11 @@ struct AddRealEstateView: View {
               
                     Group{
                         VStack{
+                            CustomTitle(title: "Select your Location")
+
                             HStack{
-                                Text("Location: ")
-                                    .foregroundColor(.yellow)
-                                Spacer()
-                            }
-                            HStack{
-                                Text("city: ")
+                                Text("City:")
+                                    .bold()
                                 Spacer()
                                 Menu {
                                     ForEach(City.allCases, id:\.self){ city in
@@ -407,16 +405,17 @@ struct AddRealEstateView: View {
                             }.padding(.horizontal , 4)
                         }.padding(.horizontal, 4)
                         
-                        Divider()
+//                        Divider()
                         
                         VStack{
+//                            HStack{
+//                                Text("Type: ")
+//                                    .foregroundColor(.yellow)
+//                                Spacer()
+//                            }
                             HStack{
-                                Text("Type: ")
-                                    .foregroundColor(.yellow)
-                                Spacer()
-                            }
-                            HStack{
-                                Text("Catoragr: ")
+                                Text("Facility Type:")
+                                    .bold()
                                 Spacer()
                                 Menu {
                                     ForEach(RealEstateType.allCases, id:\.self){ realEstateType in
@@ -432,43 +431,43 @@ struct AddRealEstateView: View {
                                         Text(viewModel.realEstate.type.title)
                                         Image(systemName: viewModel.realEstate.type.imageName)
                                         Image(systemName: "chevron.down")
-                                            .foregroundColor(.white)
+                                            .foregroundColor(.black)
                                     }
                                 }
                                 
                             }.padding(.horizontal , 4)
                         }.padding(.horizontal, 4)
                         
-                        Divider()
+//                        Divider()
                         
                         VStack{
-                            HStack{
-                                Text("sale: ")
-                                    .foregroundColor(.yellow)
-                                Spacer()
-                            }
-                            HStack{
-                                Text("offer: ")
-                                Spacer()
-                                Menu {
-                                    ForEach(SaleCategory.allCases, id:\.self){ saleCategory in
-                                        Button {
-                                            viewModel.realEstate.saleCategory = saleCategory
-                                        } label: {
-                                            Label(saleCategory.title, systemImage: saleCategory.imageName)
-                                        }
-                                        
-                                    }
-                                } label: {
-                                    HStack{
-                                        Text( viewModel.realEstate.saleCategory.title)
-                                        Image(systemName:  viewModel.realEstate.saleCategory.imageName)
-                                        Image(systemName: "chevron.down")
-                                            .foregroundColor(.white)
-                                    }
-                                }
-                                
-                            }.padding(.horizontal , 4)
+//                            HStack{
+//                                Text("sale: ")
+//                                    .foregroundColor(.yellow)
+//                                Spacer()
+//                            }
+//                            HStack{
+//                                Text("offer: ")
+//                                Spacer()
+//                                Menu {
+//                                    ForEach(SaleCategory.allCases, id:\.self){ saleCategory in
+//                                        Button {
+//                                            viewModel.realEstate.saleCategory = saleCategory
+//                                        } label: {
+//                                            Label(saleCategory.title, systemImage: saleCategory.imageName)
+//                                        }
+//
+//                                    }
+//                                } label: {
+//                                    HStack{
+//                                        Text( viewModel.realEstate.saleCategory.title)
+//                                        Image(systemName:  viewModel.realEstate.saleCategory.imageName)
+//                                        Image(systemName: "chevron.down")
+//                                            .foregroundColor(.white)
+//                                    }
+//                                }
+//
+//                            }.padding(.horizontal , 4)
                         }.padding(.horizontal, 4)
                         
                         Divider()
@@ -507,14 +506,14 @@ struct AddRealEstateView: View {
                                               }
                
 
-                VStack{
-                    Text("Lat:\(viewModel.realEstate.location.latitude)")
-                    Text("Lat:\(viewModel.realEstate.location.longitude)")
-
+//                VStack{
+//                    Text("Lat:\(viewModel.realEstate.location.latitude)")
+//                    Text("Lat:\(viewModel.realEstate.location.longitude)")
 //
-                    
-                        
-                    }
+////
+//
+//
+//                    }
                 }
                 NavigationLink {
                     SampleRealEstate(realEstate: $viewModel.realEstate, images: $viewModel.images, coordinateRegion: $viewModel.coordinateRegion,
@@ -661,10 +660,10 @@ struct AmentitiesAddRealEstateView: View {
                             .padding(.top, 8)
 
                         Image(systemName: viewModel.realEstate.isSmart ? "checmark.square.fill" : "square")
-                            .foregroundColor(viewModel.realEstate.isSmart ? .green : .white)
+                            .foregroundColor(viewModel.realEstate.isSmart ? .green : .black)
                             .padding(.top, 4)
                     }.frame(width: 60)
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                 }.buttonStyle(.borderless)
 
 
@@ -684,10 +683,10 @@ struct AmentitiesAddRealEstateView: View {
                             .padding(.top, 8)
 
                         Image(systemName: viewModel.realEstate.hasWiFi ? "checmark.square.fill" : "square")
-                            .foregroundColor(viewModel.realEstate.hasWiFi ? .green : .white)
+                            .foregroundColor(viewModel.realEstate.hasWiFi ? .green : .black)
                             .padding(.top, 4)
                     }.frame(width: 60)
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                 }.buttonStyle(.borderless)
 
                 Divider()
@@ -706,10 +705,10 @@ struct AmentitiesAddRealEstateView: View {
                             .padding(.top, 8)
 
                         Image(systemName: viewModel.realEstate.hasPool ? "checmark.square.fill" : "square")
-                            .foregroundColor(viewModel.realEstate.hasPool ? .green : .white)
+                            .foregroundColor(viewModel.realEstate.hasPool ? .green : .black)
                             .padding(.top, 4)
                     }.frame(width: 60)
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                 }.buttonStyle(.borderless)
 
                 Divider()
@@ -728,10 +727,10 @@ struct AmentitiesAddRealEstateView: View {
                             .padding(.top, 8)
 
                         Image(systemName: viewModel.realEstate.hasElevator ? "checmark.square.fill" : "square")
-                            .foregroundColor(viewModel.realEstate.hasElevator ? .green : .white)
+                            .foregroundColor(viewModel.realEstate.hasElevator ? .green : .black)
                             .padding(.top, 4)
                     }.frame(width: 60)
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                 }.buttonStyle(.borderless)
 
                 Divider()
@@ -750,10 +749,10 @@ struct AmentitiesAddRealEstateView: View {
                             .padding(.top, 8)
 
                         Image(systemName: viewModel.realEstate.hasGym ? "checmark.square.fill" : "square")
-                            .foregroundColor(viewModel.realEstate.hasGym ? .green : .white)
+                            .foregroundColor(viewModel.realEstate.hasGym ? .green : .black)
                             .padding(.top, 4)
                     }.frame(width: 60)
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                 }.buttonStyle(.borderless)
             }
 

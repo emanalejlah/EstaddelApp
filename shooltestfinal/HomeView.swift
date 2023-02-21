@@ -75,16 +75,16 @@ struct HomeView: View {
                            
                             
                             VStack(alignment: .leading , spacing: 4){
-                                HStack{
-                                    Text("\(realEstate.price)")
-                                    HStack{
-                                        Image(systemName:realEstate.saleCategory.imageName)
-                                        Text(realEstate.saleCategory.title)
-                                    }
+//                                HStack{
+//                                    Text("\(realEstate.price)")
+//                                    HStack{
+//                                        Image(systemName:realEstate.saleCategory.imageName)
+//                                        Text(realEstate.saleCategory.title)
+//                                    }
                                     
-                                    .foregroundColor(.cyan)
+//                                    .foregroundColor(.cyan)
                                     
-                                }
+//                                }
                                 Text(realEstate.description)
                                 //   عدد                     سطور عقار وصف المدرسه
                                     .lineLimit(3)
@@ -100,42 +100,54 @@ struct HomeView: View {
                                 
                             
                                 Divider()
-                                HStack{
-                                    HStack(spacing: 4){
-                                        Image(systemName: "bed.double")
-                                        Text("\(realEstate.beds)")
-                                    }.foregroundColor(.white)
-                                        .frame(width: 50 , height: 28)
-                                        .background(Color.blue)
-                                        .cornerRadius(8)
-                                    HStack{
-                                        HStack(spacing: 4){
-                                            Image(systemName: "shower.fill")
-                                            Text("\(realEstate.baths)")
-                                        }.foregroundColor(.white)
-                                            .frame(width: 50 , height: 28)
-                                            .background(Color.orange )
-                                            .cornerRadius(8)
-                                        
+//                                HStack{
+//                                    HStack(spacing: 4){
+//                                        Image(systemName: "bed.double")
+//                                        Text("\(realEstate.beds)")
+//                                    }.foregroundColor(.white)
+//                                        .frame(width: 50 , height: 28)
+//                                        .background(Color.blue)
+//                                        .cornerRadius(8)
+//                                    HStack{
+//                                        HStack(spacing: 4){
+//                                            Image(systemName: "shower.fill")
+//                                            Text("\(realEstate.baths)")
+//                                        }.foregroundColor(.white)
+//                                            .frame(width: 50 , height: 28)
+//                                            .background(Color.orange )
+//                                            .cornerRadius(8)
+//
+//                                    }
+//                                        HStack(spacing: 4){
+//                                            Image(systemName: "photo.on.rectangle.angled")
+//                                            Text("\(realEstate.images.count)")
+//                                        }.foregroundColor(.white)
+//                                            .frame(width: 50 , height: 28)
+//                                            .background(Color.purple )
+//                                            .cornerRadius(8)
+//
+//                                    HStack(spacing: 4){
+//                                        Image(systemName: "ruler.fill")
+//                                        Text("\(realEstate.space)")
+//                                    }.foregroundColor(.white)
+//                                        .frame(width: 50 , height: 28)
+//                                        .background(Color.gray )
+//                                        .cornerRadius(8)
+                                Group{
+                                    HStack(spacing: 10 ){
+                                        VStack(spacing: 2 ){
+                                            Image(systemName: realEstate.isSmart ? "entry.lever.keypad.fill": "")
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 30 , height: 30)
+                                            
+                                        }.frame(width: 60)
                                     }
-                                        HStack(spacing: 4){
-                                            Image(systemName: "photo.on.rectangle.angled")
-                                            Text("\(realEstate.images.count)")
-                                        }.foregroundColor(.white)
-                                            .frame(width: 50 , height: 28)
-                                            .background(Color.purple )
-                                            .cornerRadius(8)
-                                    
-                                    HStack(spacing: 4){
-                                        Image(systemName: "ruler.fill")
-                                        Text("\(realEstate.space)")
-                                    }.foregroundColor(.white)
-                                        .frame(width: 50 , height: 28)
-                                        .background(Color.gray )
-                                        .cornerRadius(8)
-                                        
-                                    
                                 }
+//
+//
+//
+//                                }
                                 
                             }
                             
@@ -164,7 +176,7 @@ struct HomeView: View {
                             
                             } label: {
                                 Image(systemName: "eye.slash")
-                                    .foregroundColor(.yellow)
+                                    .foregroundColor(Color("Mandarin"))
                                     .padding(6)
                             }
                             , alignment: .topTrailing
@@ -186,12 +198,12 @@ struct HomeView: View {
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 20 , height: 20)
-                            Text("\(realEstate.price)")
-                            
-                                .foregroundColor(.white)
+//                            Text("\(realEstate.price)")
+//
+//                                .foregroundColor(.white)
                             
                             Image(systemName: realEstate.type.imageName)
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("Mandarin"))
                             
                         }
                             .padding(.bottom,12)
@@ -200,9 +212,9 @@ struct HomeView: View {
                                 VStack(spacing: 0){
                                     Spacer()
                                     RoundedRectangle(cornerRadius: 12)
-                                        .fill(Color.green)
+                                        .fill(Color.white)
                                     Triangle()
-                                        .fill(Color.green)
+                                        .fill(Color.white)
                                         .frame(width: 20 , height: 20)
                                         .rotationEffect(.init(degrees: 180))
                                 }
