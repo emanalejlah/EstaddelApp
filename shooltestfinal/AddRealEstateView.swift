@@ -58,112 +58,96 @@ struct AddRealEstateView: View {
 //
 //                    Text("Riyadh")
 //                        .font(.system(size: 17, weight: .regular)).foregroundColor(Color("Mandarin"))
-                    TextFiledsView()
-//                    Group{
-//
-//                        VStack{
-//
-//
-//                            //                            TextField("type info", text:$viewModel.realEstate.description, axis:.vertical)
-//                            //                                .padding()
-//                            //                                .frame(minHeight: 10)
-//                            Text("School Information")
-//                                .font(.system(size: 20, weight: .bold))
-//                                .padding(.bottom)
-//                                .padding(.leading)
-//
-//
-//                            VStack(alignment: .leading){
-//
-//                                Text("School Name:")
-//                                CustomInputField(imageName: "building.fill",
-//                                                 placeholderText: "Educational Facility Name",
-//                                                 text: $viewModel.realEstate.EfName)
-//
-//                                Text("City Name:")
-//                                CustomInputField(imageName: "building.fill",
-//                                                 placeholderText: "City Name",
-//                                                 text: $viewModel.realEstate.EfCity)
-//
-//                                Text("About Educational Facility:")
-//
-//                                HStack(alignment: .top){
-//                                    Image(systemName:"pencil.and.outline")
-//                                    .padding(.top, 8)
-//                                    TextEditor(text: $viewModel.realEstate.description)
-//
-//                                }
-//                                .padding(.horizontal)
-//                                .foregroundColor(Color("Sage"))
-//                                .frame(width: 358, height: 72)
-//                                .overlay(
-//                                    RoundedRectangle(cornerRadius: 10)
-//                                        .stroke(.gray, lineWidth: 1))
-//                                .padding(.bottom, 8)
-//
-//
-//                                Text("Students Count:")
-//                                CustomInputField(imageName: "person",
-//                                                 placeholderText: "How many students in class",
-//                                                 text: $viewModel.realEstate.EfstudentsNO)
-//                                .keyboardType(.numberPad)
-//
-//
-//                                Text("Fees:")
-//                                CustomInputField(imageName: "dollarsign.circle",
-//                                                 placeholderText: "Your fees",
-//                                                 text: $viewModel.realEstate.Efprice)
-//                                .keyboardType(.numberPad)
-//
-//                                .overlay(
-//                                    RoundedRectangle(cornerRadius: 5)
-//                                        .stroke(Color.white,lineWidth: 0.2)
-//                                )
-//                            }.padding(.horizontal , 16)
-//                            Divider()
-//
-//                            VStack{
-//
-//                                CustomTitle(title: "Conacat Information")
-//                                CustomInputField(imageName: "phone",
-//                                                 placeholderText: "05XXXXXXXX",
-//                                                 text: $viewModel.realEstate.EfPhoneNu)
-//                                .keyboardType(.numberPad)
-////                                .limitTextLength($viewModel.realEstate.EfPhoneNu, to: 20)
-//
-//
-//
-//
-//                                CustomInputField(imageName: "envelope",
-//                                                 placeholderText: "Email",
-//                                                 text: $viewModel.realEstate.Efemail)
-//
-//                                .overlay(
-//                                    RoundedRectangle(cornerRadius: 5)
-//                                        .stroke(Color.white,lineWidth: 0.2)
-//                                )
-//                            }.padding(.horizontal , 16)
-//                            Divider()
-//                            //                    nwe
-//                            //                        VStack{
-//                            //                            HStack{
-//                            //                                Text("SchoolName :")
-//                            //                                    .foregroundColor(.orange)
-//                            //                                    .font(.title)
-//                            //                                Spacer()
-//                            //                            }
-//                            //
-//                            //                            TextField("SchoolName", text:$viewModel.realEstate.EfName, axis:.vertical)
-//                            //                                .padding()
-//                            //                                .frame(minHeight: 100)
-//                            //
-//                            //                                .overlay(
-//                            //                                    RoundedRectangle(cornerRadius: 5)
-//                            //                                        .stroke(Color.white,lineWidth: 0.2)
-//                            //                                )
-//                            //                        }.padding(.horizontal , 4)
-//                            // NEW
-//                        }
+//                    TextFiledsView()
+                    Group{
+
+                        VStack{
+                    
+                    
+                                                TextField("type info", text:$viewModel.realEstate.description, axis:.vertical)
+                                                    .padding()
+                                                    .frame(minHeight: 10)
+                    Text("School Information")
+                        .font(.system(size: 20, weight: .bold))
+                        .padding(.bottom)
+                        .padding(.leading)
+                            Group{
+                                
+                                VStack(alignment: .leading){
+                                    
+                                    Text("School Name:")
+                                    CustomInputField(imageName: "building.fill",
+                                                     placeholderText: "Educational Facility Name",
+                                                     text: $viewModel.realEstate.EfName)
+                                    
+                                    Text("City Name:")
+                                    CustomInputField(imageName: "building.fill",
+                                                     placeholderText: "City Name",
+                                                     text: $viewModel.realEstate.EfCity)
+                                    
+                                    Text("About Educational Facility:")
+                                    
+                                    HStack(alignment: .top){
+                                        Image(systemName:"pencil.and.outline")
+                                            .padding(.top, 8)
+                                        TextEditor(text: $viewModel.realEstate.description)
+                                        
+                                        
+                                    }
+                                    .padding(.horizontal)
+                                    .foregroundColor(Color("Sage"))
+                                    .frame(width: 358, height: 72)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray, lineWidth: 1))
+                                    .padding(.bottom, 8)
+                                    
+                                    
+                                    
+                                    Text("Students Count:")
+                                    CustomInputField(imageName: "person",
+                                                     placeholderText: "How many students in class",
+                                                     text: $viewModel.realEstate.EfstudentsNO)
+                                    .keyboardType(.numberPad)
+                                    
+                                    
+                                    Text("Fees:")
+                                    CustomInputField(imageName: "dollarsign.circle",
+                                                     placeholderText: "Your fees",
+                                                     text: $viewModel.realEstate.Efprice)
+                                    .keyboardType(.numberPad)
+                                    
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(Color.white,lineWidth: 0.2)
+                                    )
+                                }.padding(.horizontal , 16)
+                                
+                                Divider()
+                            }
+                    VStack{
+                        
+                        CustomTitle(title: "Conacat Information")
+                        CustomInputField(imageName: "phone",
+                                         placeholderText: "05XXXXXXXX",
+                                         text: $viewModel.realEstate.EfPhoneNu)
+                        .keyboardType(.numberPad)
+
+                        
+                        
+                        
+                        CustomInputField(imageName: "envelope",
+                                         placeholderText: "Email",
+                                         text: $viewModel.realEstate.Efemail)
+
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.white,lineWidth: 0.2)
+                        )
+                    }.padding(.horizontal , 16)
+                    Divider()
+
+                }
 //                    }
                 }
                 Group{
@@ -386,124 +370,125 @@ struct AddRealEstateView: View {
 //
 //                }.padding(.horizontal, 4)
                 
-
-                Divider()
-                
-                AmentitiesAddRealEstateView(viewModel: viewModel)
-                    .padding(.bottom)
-                Divider()
-                    .padding(.bottom)
                 Group{
-              
+                    Divider()
+                    
+                    AmentitiesAddRealEstateView(viewModel: viewModel)
+                        .padding(.bottom)
+                    Divider()
+                        .padding(.bottom)
+                }
                     Group{
-                        VStack{
-                            CustomTitle(title: "Select your Location")
-
-                            HStack{
-                                Text("City:")
-                                    .bold()
-                                Spacer()
-                                Menu {
-                                    ForEach(City.allCases, id:\.self){ city in
-                                        Button {
-                                            viewModel.realEstate.city = city
-                                        } label: {
-                                            Text(city.title)
-                                        }
-                                        
-                                    }
-                                } label: {
-                                    HStack{
-                                        Text(viewModel.realEstate.city.title)
-                                        Image(systemName: "chevron.down")
-                                            .foregroundColor(.black)
-                                    }
-                                }
+                        
+                        Group{
+                            VStack{
+                                CustomTitle(title: "Select your Location")
                                 
-                            }
-                        }.padding(.horizontal, 8)
-                        
-                        
-                        VStack{
-//                            HStack{
-//                                Text("Type: ")
-//                                    .foregroundColor(.yellow)
-//                                Spacer()
-//                            }
-                            HStack{
-                                Text("Facility Type:")
-                                    .bold()
-                                Spacer()
-                                Menu {
-                                    ForEach(RealEstateType.allCases, id:\.self){ realEstateType in
-                                        Button {
-                                            viewModel.realEstate.type = realEstateType
-                                        } label: {
-                                            Label(realEstateType.title, systemImage: realEstateType.imageName)
+                                HStack{
+                                    Text("City:")
+                                        .bold()
+                                    Spacer()
+                                    Menu {
+                                        ForEach(City.allCases, id:\.self){ city in
+                                            Button {
+                                                viewModel.realEstate.city = city
+                                            } label: {
+                                                Text(city.title)
+                                            }
+                                            
                                         }
-                                        
+                                    } label: {
+                                        HStack{
+                                            Text(viewModel.realEstate.city.title)
+                                            Image(systemName: "chevron.down")
+                                                .foregroundColor(.black)
+                                        }
                                     }
-                                } label: {
-                                    HStack{
-                                        Text(viewModel.realEstate.type.title)
-                                        Image(systemName: viewModel.realEstate.type.imageName)
-                                        Image(systemName: "chevron.down")
-                                            .foregroundColor(.black)
-                                    }
+                                    
                                 }
-                                
-                            }
-                        }.padding(.horizontal, 8)
-                            .padding(.bottom)
-//                        Divider()
-                        
-//                        VStack{
-////                            HStack{
-////                                Text("sale: ")
-////                                    .foregroundColor(.yellow)
-////                                Spacer()
-////                            }
-////                            HStack{
-////                                Text("offer: ")
-////                                Spacer()
-////                                Menu {
-////                                    ForEach(SaleCategory.allCases, id:\.self){ saleCategory in
-////                                        Button {
-////                                            viewModel.realEstate.saleCategory = saleCategory
-////                                        } label: {
-////                                            Label(saleCategory.title, systemImage: saleCategory.imageName)
-////                                        }
-////
-////                                    }
-////                                } label: {
-////                                    HStack{
-////                                        Text( viewModel.realEstate.saleCategory.title)
-////                                        Image(systemName:  viewModel.realEstate.saleCategory.imageName)
-////                                        Image(systemName: "chevron.down")
-////                                            .foregroundColor(.white)
-////                                    }
-////                                }
-////
-////                            }.padding(.horizontal , 4)
-//                        }.padding(.horizontal, 4)
-                        
-//                        Divider()
-                        
-//                        VStack{
-//                            HStack{
-//                                Text("price: ")
-//                                    .foregroundColor(.yellow)
-//                                Spacer()
-//                            }
-//                            HStack{
-//                                Text("amout: ")
-//                                Spacer()
-//                                TextField("0,0" , value: $viewModel.realEstate.price, format: .number)
-//                                
-//                            }.padding(.horizontal , 4)
-//                        }.padding(.horizontal, 4)
-                    }.padding(.horizontal, 11)
-               
+                            }.padding(.horizontal, 8)
+                            
+                            
+                            VStack{
+                                //                            HStack{
+                                //                                Text("Type: ")
+                                //                                    .foregroundColor(.yellow)
+                                //                                Spacer()
+                                //                            }
+                                HStack{
+                                    Text("Facility Type:")
+                                        .bold()
+                                    Spacer()
+                                    Menu {
+                                        ForEach(RealEstateType.allCases, id:\.self){ realEstateType in
+                                            Button {
+                                                viewModel.realEstate.type = realEstateType
+                                            } label: {
+                                                Label(realEstateType.title, systemImage: realEstateType.imageName)
+                                            }
+                                            
+                                        }
+                                    } label: {
+                                        HStack{
+                                            Text(viewModel.realEstate.type.title)
+                                            Image(systemName: viewModel.realEstate.type.imageName)
+                                            Image(systemName: "chevron.down")
+                                                .foregroundColor(.black)
+                                        }
+                                    }
+                                    
+                                }
+                            }.padding(.horizontal, 8)
+                                .padding(.bottom)
+                            //                        Divider()
+                            
+                            //                        VStack{
+                            ////                            HStack{
+                            ////                                Text("sale: ")
+                            ////                                    .foregroundColor(.yellow)
+                            ////                                Spacer()
+                            ////                            }
+                            ////                            HStack{
+                            ////                                Text("offer: ")
+                            ////                                Spacer()
+                            ////                                Menu {
+                            ////                                    ForEach(SaleCategory.allCases, id:\.self){ saleCategory in
+                            ////                                        Button {
+                            ////                                            viewModel.realEstate.saleCategory = saleCategory
+                            ////                                        } label: {
+                            ////                                            Label(saleCategory.title, systemImage: saleCategory.imageName)
+                            ////                                        }
+                            ////
+                            ////                                    }
+                            ////                                } label: {
+                            ////                                    HStack{
+                            ////                                        Text( viewModel.realEstate.saleCategory.title)
+                            ////                                        Image(systemName:  viewModel.realEstate.saleCategory.imageName)
+                            ////                                        Image(systemName: "chevron.down")
+                            ////                                            .foregroundColor(.white)
+                            ////                                    }
+                            ////                                }
+                            ////
+                            ////                            }.padding(.horizontal , 4)
+                            //                        }.padding(.horizontal, 4)
+                            
+                            //                        Divider()
+                            
+                            //                        VStack{
+                            //                            HStack{
+                            //                                Text("price: ")
+                            //                                    .foregroundColor(.yellow)
+                            //                                Spacer()
+                            //                            }
+                            //                            HStack{
+                            //                                Text("amout: ")
+                            //                                Spacer()
+                            //                                TextField("0,0" , value: $viewModel.realEstate.price, format: .number)
+                            //                                
+                            //                            }.padding(.horizontal , 4)
+                            //                        }.padding(.horizontal, 4)
+                        }.padding(.horizontal, 11)
+                    }
                 mapUIkitView(realEstate: $viewModel.realEstate)
                     .frame(width:UIScreen.main.bounds.width - 50  , height:250 )
                     .cornerRadius(12)
@@ -1007,23 +992,4 @@ struct mapUIkitView: UIViewRepresentable{
         }
     }
 }
-struct TextLengthLimiter: ViewModifier {
-  @Binding var text: String
-  let maxLength: Int
 
-  func body(content: Content) -> some View {
-    content
-      .onReceive(text.publisher.collect()) { output in
-        text = String(output.prefix(maxLength)) // HERE
-      }
-  }
-
-}
-
-extension TextField {
-  func limitTextLength(_ text: Binding<String>,
-                       to maxLength: Int) -> some View {
-    self.modifier(TextLengthLimiter(text: text,
-                                    maxLength: maxLength))
-  }
-}

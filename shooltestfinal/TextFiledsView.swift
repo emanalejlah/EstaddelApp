@@ -9,8 +9,20 @@ import SwiftUI
 
 struct TextFiledsView: View {
     @StateObject var viewModel = AddRealEstateViewModel()
+    @EnvironmentObject var firebaseUserManager : FirebaseUserManager
+
+    @State var realEstate = RealEstate()
+    @State var images: [UIImage] = []
+    @State var isShowingVideoPickerView: Bool = false
+//   @Published var videoUrl: URL?
+    @State var refreshMapViewId = UUID()
+    @State var profileImage: UIImage?
+    
     var characterLimit = 20
 
+    @Binding var isShowingAddingRealEstateView: Bool
+
+    @Environment(\.presentationMode) private var presentationMode
     var body: some View {
     
     VStack{
@@ -105,7 +117,9 @@ struct TextFiledsView: View {
 
 struct TextFiledsView_Previews: PreviewProvider {
     static var previews: some View {
-        TextFiledsView()
+        TextFiledsView(isShowingAddingRealEstateView: .constant(false))
+        //            .preferredColorScheme(.dark)
+                    .environmentObject(FirebaseUserManager())
     }
 }
 
