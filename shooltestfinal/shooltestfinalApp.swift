@@ -29,7 +29,7 @@ struct shooltestfinalApp: App {
     @StateObject var firebaseRealEstateManager =  FirebaseRealEstateManager()
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            LoadingView()
        .environmentObject(FirebaseUserManager())
        .environmentObject(FirebaseRealEstateManager())
         }

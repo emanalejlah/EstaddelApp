@@ -262,72 +262,72 @@ struct RealEstateDetailView: View {
                 coordinateRegion.center = realEstate.location
                 coordinateRegion.span = realEstate.city.extraZoomLevel
             }
-            HStack{
-                VStack{
-                    WebImage(url: URL(string: firebaseUserManager.user.profileImageUrl))
-                        .resizable()
-                        .placeholder {
-                        Rectangle().foregroundColor(.gray)
-                    }
-                    .indicator(.activity)
-                    .transition(.fade(duration: 0.5))
-                    .scaledToFill()
-                        .frame(width: 50, height: 50)
-                        .clipShape(Circle())
-                        .padding(2)
-                        .overlay{
-                            Circle()
-                                .stroke(Color.white, lineWidth: 0.4)
-                        }
-                    Text(Lorem.firstName)
-                }
-                VStack{
-                    HStack{
-                        Button {
-                            
-                        } label: {
-                            HStack{
-                                Image(systemName:"envelope" )
-//                                Text(ownerUser.email)
-                                Text(firebaseUserManager.user.email)
-                            }
-                            .foregroundColor(.white)
-                            .frame(width: 136 , height: 34)
-                            .background(Color.blue)
-                            
-                        }
-                        Button {
-                            
-                        } label: {
-                            HStack{
-                                Image(systemName:"bubble.left" )
-                                Text("Whatsup")
-                            }
-                            .foregroundColor(.white)
-                            .frame(width: 136 , height: 34)
-                            .background(Color.indigo)
-                            
-                        }.buttonStyle(.borderless)
-
-                    }
-                    Button {
-                        
-                    } label: {
-                        HStack(spacing: 4){
-                            Image(systemName:"phone" )
-//                            Text(ownerUser.phoneNumber)
-                            Text(firebaseUserManager.user.email)
-                        }
-                        .foregroundColor(.white)
-                        .frame(width: 136 , height: 34)
-                        .background(Color.indigo)
-                        
-                    }.buttonStyle(.borderless)
-
-                    
-                    
-                }
-            }
+//            HStack{
+//                VStack{
+//                    WebImage(url: URL(string: firebaseUserManager.user.profileImageUrl))
+//                        .resizable()
+//                        .placeholder {
+//                        Rectangle().foregroundColor(.gray)
+//                    }
+//                    .indicator(.activity)
+//                    .transition(.fade(duration: 0.5))
+//                    .scaledToFill()
+//                        .frame(width: 50, height: 50)
+//                        .clipShape(Circle())
+//                        .padding(2)
+//                        .overlay{
+//                            Circle()
+//                                .stroke(Color.white, lineWidth: 0.4)
+//                        }
+//                    Text(Lorem.firstName)
+//                }
+//                VStack{
+//                    HStack{
+//                        Button {
+//                            
+//                        } label: {
+//                            HStack{
+//                                Image(systemName:"envelope" )
+////                                Text(ownerUser.email)
+//                                Text(firebaseUserManager.user.email)
+//                            }
+//                            .foregroundColor(.white)
+//                            .frame(width: 136 , height: 34)
+//                            .background(Color.blue)
+//                            
+//                        }
+//                        Button {
+//                            
+//                        } label: {
+//                            HStack{
+//                                Image(systemName:"bubble.left" )
+//                                Text("Whatsup")
+//                            }
+//                            .foregroundColor(.white)
+//                            .frame(width: 136 , height: 34)
+//                            .background(Color.indigo)
+//                            
+//                        }.buttonStyle(.borderless)
+//
+//                    }
+//                    Button {
+//                        
+//                    } label: {
+//                        HStack(spacing: 4){
+//                            Image(systemName:"phone" )
+////                            Text(ownerUser.phoneNumber)
+//                            Text(firebaseUserManager.user.email)
+//                        }
+//                        .foregroundColor(.white)
+//                        .frame(width: 136 , height: 34)
+//                        .background(Color.indigo)
+//                        
+//                    }.buttonStyle(.borderless)
+//
+//                    
+//                    
+//                }
+//            }
             
                
         }

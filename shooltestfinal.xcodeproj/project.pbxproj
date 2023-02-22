@@ -44,6 +44,11 @@
 		B65F5F1F29A0311C0031AEEA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F5F1E29A0311C0031AEEA /* LocationManager.swift */; };
 		B65F5F2329A045180031AEEA /* AddRealEstateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F5F2229A045180031AEEA /* AddRealEstateView.swift */; };
 		B65F5F2529A05D040031AEEA /* SampleRealEstate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F5F2429A05D040031AEEA /* SampleRealEstate.swift */; };
+		B69A4E9229A65BA9003EE578 /* passwordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A4E9129A65BA9003EE578 /* passwordView.swift */; };
+		B69A4E9629A66904003EE578 /* Sitting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A4E9529A66903003EE578 /* Sitting.swift */; };
+		B69A4E9829A66926003EE578 /* Privacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A4E9729A66926003EE578 /* Privacy.swift */; };
+		B69A4E9C29A6698C003EE578 /* SittingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A4E9B29A6698C003EE578 /* SittingCell.swift */; };
+		B69A4E9E29A66BB6003EE578 /* Contactus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A4E9D29A66BB6003EE578 /* Contactus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +105,12 @@
 		B65F5F1E29A0311C0031AEEA /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B65F5F2229A045180031AEEA /* AddRealEstateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRealEstateView.swift; sourceTree = "<group>"; };
 		B65F5F2429A05D040031AEEA /* SampleRealEstate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRealEstate.swift; sourceTree = "<group>"; };
+		B69A4E9129A65BA9003EE578 /* passwordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = passwordView.swift; sourceTree = "<group>"; };
+		B69A4E9529A66903003EE578 /* Sitting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sitting.swift; sourceTree = "<group>"; };
+		B69A4E9729A66926003EE578 /* Privacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Privacy.swift; sourceTree = "<group>"; };
+		B69A4E9B29A6698C003EE578 /* SittingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SittingCell.swift; sourceTree = "<group>"; };
+		B69A4E9D29A66BB6003EE578 /* Contactus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contactus.swift; sourceTree = "<group>"; };
+		B69A4E9F29A68EFB003EE578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +178,7 @@
 		B65F5ECA299F8AEA0031AEEA /* shooltestfinal */ = {
 			isa = PBXGroup;
 			children = (
+				B69A4E9F29A68EFB003EE578 /* Info.plist */,
 				B65F5ECB299F8AEA0031AEEA /* shooltestfinalApp.swift */,
 				B65F5EF5299F8B170031AEEA /* AuthView.swift */,
 				B65F5EF7299F8B500031AEEA /* Login.swift */,
@@ -181,10 +193,15 @@
 				B65F5F16299FBB930031AEEA /* UpdateUserNameView.swift */,
 				B65F5F0A299F91400031AEEA /* FirebaseUserManager.swift */,
 				B62DCC6429A117CD00F4F3F2 /* FirebaseRealEstateManager.swift */,
+				B69A4E9529A66903003EE578 /* Sitting.swift */,
+				B69A4E9D29A66BB6003EE578 /* Contactus.swift */,
+				B69A4E9B29A6698C003EE578 /* SittingCell.swift */,
+				B69A4E9729A66926003EE578 /* Privacy.swift */,
 				B65F5F0E299FA3420031AEEA /* Model.swift */,
 				B65F5F1E29A0311C0031AEEA /* LocationManager.swift */,
 				AD012C8629A4B012000515D5 /* CustomTitle.swift */,
 				B600FDEA29A3C2C700819C9A /* CustomInputField.swift */,
+				B69A4E9129A65BA9003EE578 /* passwordView.swift */,
 				AD012C8C29A54A52000515D5 /* BubbleView.swift */,
 				AD012C7229A2382F000515D5 /* LoadingView */,
 				B65F5F1C29A019970031AEEA /* MediaPicker */,
@@ -369,6 +386,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B600FDEB29A3C2C700819C9A /* CustomInputField.swift in Sources */,
+				B69A4E9629A66904003EE578 /* Sitting.swift in Sources */,
+				B69A4E9E29A66BB6003EE578 /* Contactus.swift in Sources */,
 				B65F5EF8299F8B500031AEEA /* Login.swift in Sources */,
 				B65F5F2529A05D040031AEEA /* SampleRealEstate.swift in Sources */,
 				AD012C8729A4B012000515D5 /* CustomTitle.swift in Sources */,
@@ -385,11 +404,14 @@
 				B62DCC6529A117CD00F4F3F2 /* FirebaseRealEstateManager.swift in Sources */,
 				B65F5F17299FBB930031AEEA /* UpdateUserNameView.swift in Sources */,
 				AD012C7829A2382F000515D5 /* OnbordingView.swift in Sources */,
+				B69A4E9829A66926003EE578 /* Privacy.swift in Sources */,
 				B65F5F2329A045180031AEEA /* AddRealEstateView.swift in Sources */,
 				B65F5F11299FB8F20031AEEA /* ProfileView.swift in Sources */,
+				B69A4E9229A65BA9003EE578 /* passwordView.swift in Sources */,
 				B65F5F0B299F91400031AEEA /* FirebaseUserManager.swift in Sources */,
 				AD012C7929A2382F000515D5 /* LoadingViewBG.swift in Sources */,
 				B65F5F13299FBA430031AEEA /* UpdatePhoneNumberView.swift in Sources */,
+				B69A4E9C29A6698C003EE578 /* SittingCell.swift in Sources */,
 				AD012C7A29A2382F000515D5 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,14 +592,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"shooltestfinal/Preview Content\"";
-				DEVELOPMENT_TEAM = VR52T6TW39;
+				DEVELOPMENT_TEAM = 6B9Z9DVNKS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = shooltestfinal/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Would Like to Access Your Photos ";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We would like to access to your location";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We would like to access to your location";
 				INFOPLIST_KEY_NSLocationUsageDescription = "We would like to access to your location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We would like to access to your location";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -589,9 +613,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = test.shooltestfinal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -603,14 +630,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"shooltestfinal/Preview Content\"";
-				DEVELOPMENT_TEAM = VR52T6TW39;
+				DEVELOPMENT_TEAM = 6B9Z9DVNKS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = shooltestfinal/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Would Like to Access Your Photos ";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We would like to access to your location";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We would like to access to your location";
 				INFOPLIST_KEY_NSLocationUsageDescription = "We would like to access to your location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We would like to access to your location";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -622,9 +651,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = test.shooltestfinal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

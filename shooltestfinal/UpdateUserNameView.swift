@@ -33,10 +33,11 @@ struct UpdateUserNameView: View {
                 }
             } label: {
                 Text("Save change")
-                    .padding()
+                    .font(.headline)
                     .foregroundColor(.white)
-                    .frame(width: 280 , height: 40)
-                    .background(Color.blue)
+                    .frame(width: 358, height: 48)
+                    .background(Color("Sage"))
+                    .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
             }
 
         }

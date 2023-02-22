@@ -64,10 +64,7 @@ struct AddRealEstateView: View {
                         VStack{
                     
                     
-                                                TextField("type info", text:$viewModel.realEstate.description, axis:.vertical)
-                                                    .padding()
-                                                    .frame(minHeight: 10)
-                    Text("School Information")
+                                                                    Text("School Information")
                         .font(.system(size: 20, weight: .bold))
                         .padding(.bottom)
                         .padding(.leading)

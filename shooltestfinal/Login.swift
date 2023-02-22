@@ -23,88 +23,102 @@ struct Login: View {
     @State var isShowinHomeView: Bool = false
     @StateObject var locationManager = LocationManager()
     @Environment(\.presentationMode) private var presentationMode
-    
+    @State var isSETINGView: Bool = false
     var body: some View {
         NavigationView{
                  ScrollView{
                      HStack{
                          Text("Welcome to Estaddel!")
                          Spacer()
+                         Button {
+                             isSETINGView.toggle()
+                         } label: {
+                             Image(systemName: "gearshape")
+                                 .frame(width: 80, height: 80)
+                         }
+
+                     }
+                     VStack{
+                         Image(systemName: "person.circle")
                          
-                     }.padding(.horizontal)
-//                     Picker(selection: $isNewUser){
-//
-//                         Text("Login")
-//                             .tag(false)
-//                         Text("create Acount")
-//                             .tag(true)
-//                     } label: {
-//                     }.pickerStyle(.segmented)
-                     
-                     PhotosPicker(selection: $selection, maxSelectionCount: 1, matching: .images, preferredItemEncoding: .automatic){
-                         if let profileImage {
-                             Image(uiImage: profileImage)
-                                 .resizable()
-                                 .scaledToFill()
-                                 .frame(width:60 , height: 60)
-                                 .clipShape(Circle())
-                        }
-//                             else {
-//                             Image(systemName: "person.circle")
-//                                 .resizable()
-//                                 .scaledToFill()
-//                                 .frame(width:60 , height: 60)
-//
-//
-//                         }
+                             .resizable()
+                             .frame(width: 145, height: 145)
+                         // MARK: - title
+                         
+                         Text("Login")
+                             .font(.title)
+                         //                     }.padding(.horizontal)
+                         ////                     Picker(selection: $isNewUser){
+                         ////
+                         ////                         Text("Login")
+                         ////                             .tag(false)
+                         ////                         Text("create Acount")
+                         ////                             .tag(true)
+                         ////                     } label: {
+                         ////                     }.pickerStyle(.segmented)
+                         //
+                         //                     PhotosPicker(selection: $selection, maxSelectionCount: 1, matching: .images, preferredItemEncoding: .automatic){
+                         //                         if let profileImage {
+                         //                             Image(uiImage: profileImage)
+                         //                                 .resizable()
+                         //                                 .scaledToFill()
+                         //                                 .frame(width:60 , height: 60)
+                         //                                 .clipShape(Circle())
+                         //                        }
+                         ////                             else {
+                         ////                             Image(systemName: "person.circle")
+                         ////                                 .resizable()
+                         ////                                 .scaledToFill()
+                         ////                                 .frame(width:60 , height: 60)
+                         ////
+                         ////
+                         ////                         }
+                         //
+                         //
+                         //
+                         //     //                    Image(systemName: "person.circle")
+                         //     //                        .resizable()
+                         //     //                        .scaledToFill()
+                         //     //                        .frame(width: 60 , height:  60)
+                         //                     }.padding(.top)
+                         //                         .onChange(of: selection){ _ in for item in selection {
+                         //                             Task{
+                         //                                 if let data = try? await item.loadTransferable(type: Data.self){
+                         //                                     profileImage = UIImage(data: data)
+                         //                                 }
+                         //                             }
+                         //                         }
+                         //
+                         //                         }
+                         //                       .isHidden(!isNewUser,remove:!isNewUser)
                          
                          
+                         CustomInputField(imageName: "envelope",
+                                          placeholderText: "Email",
+                                          text: $email)
+                             .padding()
+                         //                     TextField("UserName" , text: $username)
+                         //                         .padding()
                          
-     //                    Image(systemName: "person.circle")
-     //                        .resizable()
-     //                        .scaledToFill()
-     //                        .frame(width: 60 , height:  60)
-                     }.padding(.top)
-                         .onChange(of: selection){ _ in for item in selection {
-                             Task{
-                                 if let data = try? await item.loadTransferable(type: Data.self){
-                                     profileImage = UIImage(data: data)
-                                 }
-                             }
-                         }
-                             
-                         }
-                       .isHidden(!isNewUser,remove:!isNewUser)
-                     
-                     
-                     TextField("Email" , text: $email)
-                         .padding()
-                         .overlay {
-                             RoundedRectangle(cornerRadius: 5)
-                                 .stroke(Color.white, lineWidth: 0.4)
-                         }
-                         .padding()
-//                     TextField("UserName" , text: $username)
-//                         .padding()
-                         .overlay {
-                             RoundedRectangle(cornerRadius: 5)
-                                 .stroke(Color.white, lineWidth: 0.4)
-                         }
-                     
-                     SecureField("Password" , text: $password)
-                         .padding()
-                         .overlay {
-                             RoundedRectangle(cornerRadius: 5)
-                                 .stroke(Color.white, lineWidth: 0.4)
-                         }
+                         SecureField("Password" , text: $password)
+                             .padding(.horizontal)
+                             .foregroundColor(Color("Sage"))
+                             .frame(width: 358, height: 50)
+                             .overlay(
+                                 RoundedRectangle(cornerRadius: 10)
+                                     .stroke(.gray, lineWidth: 1))
+                             .padding(.bottom, 8)
+
+                     }
                          .padding()
                      Button {
                           print("DEBUG: button pressed")
                          isLoading.toggle()
                          DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                              
-
-                             firebaseUserManager.logUserIn(email: email, password: password) { isSuccess in
+                             guard let location = locationManager.userLocation?.coordinate else {return}
+                             
+                             firebaseUserManager.logUserIn(email: email, password: password , location: location) { isSuccess in
      //                            print("DEBUG: succes all")
                                  if isSuccess {
                                      isLoading.toggle()
@@ -123,17 +137,20 @@ struct Login: View {
      //      Auth.auth().createUser(withEmail: email,   password: password)
 
                      } label: {
-                         Text(isNewUser ? "Create an acount" : "Log in")
+                         Text(isNewUser ? "login" : "Log in")
+                             .font(.headline)
                              .foregroundColor(.white)
-                             .frame(width: 300 , height: 50)
-                             .background(Color.blue.cornerRadius(5))
+                             .frame(width: 358, height: 48)
+                             .background(Color("Sage"))
+                             .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                             
                              
                      }
-                     
-                     Text("Location user")
-                     Text("Lat:\(locationManager.userLocation?.coordinate.latitude ?? 0.0)")
-
-                     Text("Long:\(locationManager.userLocation?.coordinate.longitude ?? 0.0)")
+//
+//                     Text("Location user")
+//                     Text("Lat:\(locationManager.userLocation?.coordinate.latitude ?? 0.0)")
+//
+//                     Text("Long:\(locationManager.userLocation?.coordinate.longitude ?? 0.0)")
                      
      //                NavigationLink (destination: Login(), label: {
      //                  Text("have accoun")
@@ -172,9 +189,9 @@ struct Login: View {
                  }   .isHidden(!isLoading,remove:!isLoading)
                     
              }
-//             .fullScreenCover(isPresented: $isShowinHomeView){
-//                 HomeView()
-//             }
+             .fullScreenCover(isPresented: $isSETINGView){
+                Sitting()
+             }
        
          }
          

@@ -338,6 +338,8 @@ struct HomeView: View {
                             .resizable()
                             .placeholder {
                             Rectangle().foregroundColor(.gray)
+                                Image(systemName: "building")
+                             
                         }
                         .indicator(.activity)
                         .transition(.fade(duration: 0.5))
@@ -353,10 +355,19 @@ struct HomeView: View {
                     }
                     .padding(.bottom ,8)
                     Text(firebaseUserManager.user.username)
+                        .padding(.leading , -15)
                     Spacer()
                     
+                    
                     Button {
-                        isShowingAddingRealEstateView.toggle()
+                        
+                        if firebaseUserManager.user.id == "" {
+                          isShowingLoginView.toggle()
+                        }else{
+                            isShowingAddingRealEstateView.toggle()
+                        }
+                        
+                       
                     } label: {
                         Text("Add Facility")
                             .bold()

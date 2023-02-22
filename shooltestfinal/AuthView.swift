@@ -112,7 +112,7 @@ struct AuthView: View {
                 Button {
                      print("DEBUG: button pressed")
                     isLoading.toggle()
-                    guard let location = locationManager.userLocation?.coordinate else {return}
+                   
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
 //                        firebaseUserManager.createNewUser(email: email, password: password, username: username, profileImage:profileImage) { isSuccess in
 ////                            print("DEBUG: succes all")
@@ -127,6 +127,7 @@ struct AuthView: View {
 //                        }
 //
                         if isNewUser{
+                            guard let location = locationManager.userLocation?.coordinate else {return}
                             firebaseUserManager.createNewUser(email: email, password: password, username: username, profileImage:profileImage, location: location) { isSuccess in
 //                               print("DEBUG: succes all")
                                 if isSuccess { isLoading.toggle()

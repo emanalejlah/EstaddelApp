@@ -18,6 +18,7 @@ class FirebaseRealEstateManager: NSObject, ObservableObject{
     
     
     @Published var realEstates: [RealEstate] = []
+    @Published var myRealEstates: [RealEstate] = []
    
       
       
@@ -32,6 +33,7 @@ class FirebaseRealEstateManager: NSObject, ObservableObject{
           self.storage = Storage.storage()
           super.init()
           fetchRealEstates()
+          fetchMyRealEsate()
       }
     
     func fetchRealEstates(){
@@ -60,7 +62,21 @@ class FirebaseRealEstateManager: NSObject, ObservableObject{
         }
         
     }
-
+    
+    func fetchMyRealEsate(){
+        guard let userId = auth.currentUser?.uid else {return}
+        firestore.collection("users").document(userId).collection("realEstates").addSnapshotListener{ querySnapshot, error in
+            if let error = error{
+                print("DEBUG: while geeting My RealEstate \(error)")
+                return
+            }
+            guard let myRealEstates = querySnapshot?.documents.compactMap({try? $0.data(as : RealEstate.self)}) else {return}
+            self.myRealEstates = myRealEstates
+            
+        }
+        
+    }
+    
     
     func addRealEstate(realEstate:RealEstate, images:[UIImage] ,   Completion: @escaping ((Bool) -> ()  )){
         var realEstate = realEstate
@@ -68,13 +84,17 @@ class FirebaseRealEstateManager: NSObject, ObservableObject{
         self.uploadImagesToStorage(images: images) { imageUrlString in
             realEstate.images = imageUrlString
             try?  self.firestore.collection("realEstates").document(realEstate.id).setData(from: realEstate)
+            
+//            new for schools ownir in last
+            try? self.firestore.collection("users")
+                .document(realEstate.ownerId)
+                .collection("realEstates").document(realEstate.id)
+                .setData(from: realEstate)
             Completion(true)
         }
-
-     
-   
-        
     }
+    
+
     
     func uploadImagesToStorage(images: [UIImage], onCompletion: @escaping( ([String]) -> () )) {
         print("DEBUG: ENTRING UPLOUDIMAGE TO STROGE FUNC")

@@ -239,97 +239,97 @@ struct SampleRealEstate: View {
                 coordinateRegion.center = realEstate.location
                 coordinateRegion.span = realEstate.city.extraZoomLevel
             }
-            Group{
-            HStack{
-                VStack{
-//          Image("people-1")
-                    WebImage(url: URL(string: firebaseUserManager.user.profileImageUrl))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 50, height: 50)
-                        .clipShape(Circle())
-                        .padding(2)
-                        .overlay{
-                            Circle()
-                                .stroke(Color.white, lineWidth: 0.4)
-                        }
-                    Text(firebaseUserManager.user.username)
-                }
-              
-                    VStack{
-                        HStack{
-                            Button {
-                                
-                            } label: {
-                                HStack{
-                                    Image(systemName:"envelope" )
-                                    Text(firebaseUserManager.user.email)
-                                }
-                                .foregroundColor(.white)
-                                .frame(width: 136 , height: 34)
-                                .background(Color.blue)
-                                
-                            }
-                            Button {
-                                
-                            } label: {
-                                HStack{
-                                    Image(systemName:"bubble.left" )
-                                    Text("Whatsup")
-                                }
-                                .foregroundColor(.white)
-                                .frame(width: 136 , height: 34)
-                                .background(Color.indigo)
-                                
-                            }.buttonStyle(.borderless)
-
-                        }
-                        Button {
-                            
-                        } label: {
-                            HStack(spacing: 4){
-                                Image(systemName:"phone" )
-                                Text(firebaseUserManager.user.phoneNumber)
-                            }
-                            .foregroundColor(.white)
-                            .frame(width: 136 , height: 34)
-                            .background(Color.indigo)
-                            
-                        }.buttonStyle(.borderless)
-
-                        
-                        
-                    }
-                    
-                }
-                Group{
-                    Button {
-                        isLoading.toggle()
-                        realEstate.ownerId = firebaseUserManager.user.id
-                        firebaseRealEstateManager.addRealEstate(realEstate: realEstate, images: images) { isSuccess in
-                      
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            if isSuccess {
-                                self.isShowingAddingRealEstateView = false
-                            }else {
-                                isLoading.toggle()
-                                print("DUBAG: errorb while uploding realestate")
-                            }
-                           
-                        }
-                        }
-                    } label: {
-                        Text("Show  deteials")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(width: 358, height: 48)
-                            .background(Color("Sage"))
-                            .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            .padding(.top)
-                    }
-
-                }
-                }
+//            Group{
+//            HStack{
+//                VStack{
+////          Image("people-1")
+//                    WebImage(url: URL(string: firebaseUserManager.user.profileImageUrl))
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(width: 50, height: 50)
+//                        .clipShape(Circle())
+//                        .padding(2)
+//                        .overlay{
+//                            Circle()
+//                                .stroke(Color.white, lineWidth: 0.4)
+//                        }
+//                    Text(firebaseUserManager.user.username)
+//                }
+//
+//                    VStack{
+//                        HStack{
+//                            Button {
+//
+//                            } label: {
+//                                HStack{
+//                                    Image(systemName:"envelope" )
+//                                    Text(firebaseUserManager.user.email)
+//                                }
+//                                .foregroundColor(.white)
+//                                .frame(width: 136 , height: 34)
+//                                .background(Color.blue)
+//
+//                            }
+//                            Button {
+//
+//                            } label: {
+//                                HStack{
+//                                    Image(systemName:"bubble.left" )
+//                                    Text("Whatsup")
+//                                }
+//                                .foregroundColor(.white)
+//                                .frame(width: 136 , height: 34)
+//                                .background(Color.indigo)
+//
+//                            }.buttonStyle(.borderless)
+//
+//                        }
+//                        Button {
+//
+//                        } label: {
+//                            HStack(spacing: 4){
+//                                Image(systemName:"phone" )
+//                                Text(firebaseUserManager.user.phoneNumber)
+//                            }
+//                            .foregroundColor(.white)
+//                            .frame(width: 136 , height: 34)
+//                            .background(Color.indigo)
+//
+//                        }.buttonStyle(.borderless)
+//
+//
+//
+//                    }
+//
+//                }
+//                Group{
+//                    Button {
+//                        isLoading.toggle()
+//                        realEstate.ownerId = firebaseUserManager.user.id
+//                        firebaseRealEstateManager.addRealEstate(realEstate: realEstate, images: images) { isSuccess in
+//
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//                            if isSuccess {
+//                                self.isShowingAddingRealEstateView = false
+//                            }else {
+//                                isLoading.toggle()
+//                                print("DUBAG: errorb while uploding realestate")
+//                            }
+//
+//                        }
+//                        }
+//                    } label: {
+//                        Text("Show  deteials")
+//                            .font(.headline)
+//                            .foregroundColor(.white)
+//                            .frame(width: 358, height: 48)
+//                            .background(Color("Sage"))
+//                            .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
+//                            .padding(.top)
+//                    }
+//
+//                }
+//                }
          
 
             
@@ -353,7 +353,7 @@ struct SampleRealEstate: View {
                
        }
 
-        .navigationTitle("text")
+        .navigationTitle("My Education Complex")
 
     }
 

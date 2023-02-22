@@ -79,7 +79,7 @@ class FirebaseUserManager: NSObject, ObservableObject{
     }
     
     
-    func logUserIn(email: String, password: String, completion: @escaping ((Bool) -> ())){
+    func logUserIn(email: String, password: String, location: CLLocationCoordinate2D , completion: @escaping ((Bool) -> ())){
         auth.signIn(withEmail: email, password: password){ _, error in
             if let error = error {
                 print("DEBUG: error while loggin user in \(error.localizedDescription)")
