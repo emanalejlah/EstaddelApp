@@ -9,15 +9,15 @@ import SwiftUI
 
 enum OnbordingType: CaseIterable {
     case locate
-    case choose
+//    case choose
     case view
     
     var image: String {
         switch self {
         case .locate:
             return "ob1"
-        case .choose:
-            return "ob2"
+//        case .choose:
+//            return "ob2"
         case .view:
             return "ob3"
         }
@@ -27,8 +27,8 @@ enum OnbordingType: CaseIterable {
         switch self {
         case .locate:
             return "Locate"
-        case .choose:
-            return "Choose"
+//        case .choose:
+//            return "Choose"
         case .view:
             return "View"
         }
@@ -38,8 +38,8 @@ enum OnbordingType: CaseIterable {
         switch self {
         case .locate:
             return "Nearby Educational Facilities."
-        case .choose:
-            return "A nearby Educational Facility."
+//        case .choose:
+//            return "A nearby Educational Facility."
         case .view:
             return "Educational Facility information."
         }
