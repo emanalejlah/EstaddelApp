@@ -15,6 +15,7 @@
 		AD012C8029A24AC0000515D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD012C8229A24AC0000515D5 /* Localizable.strings */; };
 		AD012C8729A4B012000515D5 /* CustomTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD012C8629A4B012000515D5 /* CustomTitle.swift */; };
 		AD012C8D29A54A52000515D5 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD012C8C29A54A52000515D5 /* BubbleView.swift */; };
+		AD012C8F29A565F9000515D5 /* TextFiledsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD012C8E29A565F9000515D5 /* TextFiledsView.swift */; };
 		B600FDEB29A3C2C700819C9A /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B600FDEA29A3C2C700819C9A /* CustomInputField.swift */; };
 		B62DCC6529A117CD00F4F3F2 /* FirebaseRealEstateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62DCC6429A117CD00F4F3F2 /* FirebaseRealEstateManager.swift */; };
 		B641966229A29BEE00434270 /* MyRealEstatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641966129A29BED00434270 /* MyRealEstatesView.swift */; };
@@ -72,6 +73,7 @@
 		AD012C8329A24AC4000515D5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD012C8629A4B012000515D5 /* CustomTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTitle.swift; sourceTree = "<group>"; };
 		AD012C8C29A54A52000515D5 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
+		AD012C8E29A565F9000515D5 /* TextFiledsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFiledsView.swift; sourceTree = "<group>"; };
 		B600FDEA29A3C2C700819C9A /* CustomInputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		B61849FC29A3659600688053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = "Base.lproj/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B62DCC6429A117CD00F4F3F2 /* FirebaseRealEstateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRealEstateManager.swift; sourceTree = "<group>"; };
@@ -171,8 +173,8 @@
 				B65F5F0C299FA2240031AEEA /* HomeView.swift */,
 				B65F5F10299FB8F20031AEEA /* ProfileView.swift */,
 				B65F5F2229A045180031AEEA /* AddRealEstateView.swift */,
+				AD012C8E29A565F9000515D5 /* TextFiledsView.swift */,
 				B65F5F1A29A007AB0031AEEA /* RealEstateDetailView.swift */,
-				AD012C8C29A54A52000515D5 /* BubbleView.swift */,
 				B65F5F2429A05D040031AEEA /* SampleRealEstate.swift */,
 				B641966129A29BED00434270 /* MyRealEstatesView.swift */,
 				B65F5F12299FBA430031AEEA /* UpdatePhoneNumberView.swift */,
@@ -183,6 +185,7 @@
 				B65F5F1E29A0311C0031AEEA /* LocationManager.swift */,
 				AD012C8629A4B012000515D5 /* CustomTitle.swift */,
 				B600FDEA29A3C2C700819C9A /* CustomInputField.swift */,
+				AD012C8C29A54A52000515D5 /* BubbleView.swift */,
 				AD012C7229A2382F000515D5 /* LoadingView */,
 				B65F5F1C29A019970031AEEA /* MediaPicker */,
 				B65F5ECF299F8AEB0031AEEA /* Assets.xcassets */,
@@ -371,6 +374,7 @@
 				AD012C8729A4B012000515D5 /* CustomTitle.swift in Sources */,
 				B65F5EF6299F8B170031AEEA /* AuthView.swift in Sources */,
 				B65F5ECC299F8AEA0031AEEA /* shooltestfinalApp.swift in Sources */,
+				AD012C8F29A565F9000515D5 /* TextFiledsView.swift in Sources */,
 				B641966229A29BEE00434270 /* MyRealEstatesView.swift in Sources */,
 				B65F5F1F29A0311C0031AEEA /* LocationManager.swift in Sources */,
 				AD012C8D29A54A52000515D5 /* BubbleView.swift in Sources */,

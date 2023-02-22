@@ -136,7 +136,10 @@ struct RealEstateDetailView: View {
        
           
                 VStack {
-                    Text("photo")
+                    CustomTitle(title: "Photos")
+                        .padding(.top)
+                        .padding(.horizontal, 16)
+
                     if !realEstate.images.isEmpty {
                         TabView{
                         ForEach(realEstate.images, id: \.self){ imageUrlString in
@@ -181,26 +184,26 @@ struct RealEstateDetailView: View {
                                     .background(Material.ultraThin)
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                                 Spacer()
-                                Image(systemName: "bookmark")
-                                    .padding(8)
-                                        .background(Material.ultraThin)
-                                        .clipShape(Circle())
+//                                Image(systemName: "bookmark")
+//                                    .padding(8)
+//                                        .background(Material.ultraThin)
+//                                        .clipShape(Circle())
                             }
                             Spacer()
-                            HStack{
-                                HStack{
-                                    Image(systemName: realEstate.saleCategory.imageName)
-                                    Text("\(realEstate.saleCategory.title)")
-                                }
-                                .padding(8)
-                                    .background(Material.ultraThin)
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                                Spacer()
-                                Text("\(realEstate.price )")
-                                    .padding(8)
-                                        .background(Material.ultraThin)
-                                        .clipShape(Circle())
-                            }
+//                            HStack{
+////                                HStack{
+////                                    Image(systemName: realEstate.saleCategory.imageName)
+////                                    Text("\(realEstate.saleCategory.title)")
+////                                }
+////                                .padding(8)
+////                                    .background(Material.ultraThin)
+////                                    .clipShape(RoundedRectangle(cornerRadius: 12))
+//                                Spacer()
+//                                Text("\(realEstate.price )")
+//                                    .padding(8)
+//                                        .background(Material.ultraThin)
+//                                        .clipShape(Circle())
+//                            }
                         }.padding()
                             .padding(.bottom, 36)
                     )
@@ -229,23 +232,22 @@ struct RealEstateDetailView: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: 20 , height: 20)
-                        Text("1000")
+//                        Text("1000")
+//
+//                            .foregroundColor(Color("Mandarin"))
                         
-                            .foregroundColor(.white)
+                        Image(systemName: "building")
                         
-                        Image(systemName: "house")
-                            .foregroundColor(.white)
-                        
-                    }
+                    }                            .foregroundColor(Color("Mandarin"))
                         .padding(.bottom,12)
                         .padding()
                         .background(
                             VStack(spacing: 0){
                                 Spacer()
                                 RoundedRectangle(cornerRadius: 12)
-                                    .fill(Color.green)
+                                    .fill(Color.white)
                                 Triangle()
-                                    .fill(Color.green)
+                                    .fill(Color.white)
                                     .frame(width: 20 , height: 20)
                                     .rotationEffect(.init(degrees: 180))
                             }
@@ -355,66 +357,117 @@ struct AmenitieView:View {
     var body: some View{
         VStack(alignment:.center){
             HStack{
-                Text("Amenities")
-                    .foregroundColor(.orange)
-                    .font(.title)
+                CustomTitle(title: "Facilities")
+
                 Spacer()
             }
             
             HStack(spacing: 10 ){
-                VStack(spacing: 2 ){
-                    Image(systemName: "entry.lever.keypad.fill")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 30 , height: 30)
-                    Text("smart")
-                        .font(.system(size: 14, weight: .semibold))
-                        .padding(.top , 2)
-                    Image(systemName: realEstate.isSmart ? "checkmark.square.fill" : "xmark.square.fill")
-                        .foregroundColor(realEstate.isSmart ? .green: .red)
-                        .padding(.top , 4)
-                }.frame(width: 60)
-                Divider()
                 
-                VStack(spacing: 2 ){
-                    Image(systemName: "wifi")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 30 , height: 30)
-                    Text("wifi")
-                        .font(.system(size: 14, weight: .semibold))
-                        .padding(.top , 2)
-                    Image(systemName: realEstate.hasWiFi ? "checkmark.square.fill" : "xmark.square.fill")
-                        .foregroundColor(realEstate.hasWiFi ? .green: .red)
-                        .padding(.top , 4)
-                }.frame(width: 60)
-                Divider()
-                VStack(spacing: 2 ){
-                    Image(systemName: "figure.pool.swim")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 30 , height: 30)
-                    Text("wifi")
-                        .font(.system(size: 14, weight: .semibold))
-                        .padding(.top , 2)
-                    Image(systemName: realEstate.hasPool ? "checkmark.square.fill" : "xmark.square.fill")
-                        .foregroundColor(realEstate.hasPool ? .green: .red)
-                        .padding(.top , 4)
-                }.frame(width: 60)
+          
+                    ZStack{
+                        Rectangle()
+                            .fill(.white)
+                            .frame(width: 80, height: 60)
+                            .cornerRadius(8)
+//                            .shadow( color: Color(.lightGray), radius:3, x:0, y:2)
+                        VStack{
+                            Image(systemName: realEstate.isSmart ? "desktopcomputer": "")
+
+                            //                    "water.waves.slash"
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 20 , height: 20)
+                            
+                            Text(realEstate.isSmart ? "smart": "")
+                                .font(.system(size: 14, weight: .semibold))
+                            
+                            //                    Image(systemName: realEstate.hasWiFi ? "checkmark.square.fill" : "xmark.square.fill")
+                            //                        .foregroundColor(realEstate.hasWiFi ? .green: .red)
+                            //                        .padding(.top , 4)
+                        }
+                        .padding()
+                    }.foregroundColor(Color("Sage"))
+
                 
-                Divider()
-                VStack(spacing: 2 ){
-                    Image(systemName: "figure.walk.arrival")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 30 , height: 30)
-                    Text("wifi")
-                        .font(.system(size: 14, weight: .semibold))
-                        .padding(.top , 2)
-                    Image(systemName: realEstate.hasElevator ? "checkmark.square.fill" : "xmark.square.fill")
-                        .foregroundColor(realEstate.hasElevator ? .green: .red)
-                        .padding(.top , 4)
-                }.frame(width: 60)
+                
+                
+                    ZStack{
+                        Rectangle()
+                            .fill(.white)
+                            .frame(width: 80, height: 60)
+                            .cornerRadius(8)
+//                            .shadow(color: Color(.lightGray), radius:3, x:0, y:2)
+                        VStack{
+                            Image(systemName: realEstate.hasPool ? "figure.pool.swim": "")
+                            
+                            //                    "water.waves.slash"
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 20 , height: 20)
+                            
+                            Text(realEstate.hasPool ? "Pool": "")
+                                .font(.system(size: 14, weight: .semibold))
+                            
+                            //                    Image(systemName: realEstate.hasWiFi ? "checkmark.square.fill" : "xmark.square.fill")
+                            //                        .foregroundColor(realEstate.hasWiFi ? .green: .red)
+                            //                        .padding(.top , 4)
+                        }
+                        .padding()
+                    }.foregroundColor(Color("Mandarin"))
+
+                
+                
+                          ZStack{
+                              Rectangle()
+                                  .fill(.white)
+                                  .frame(width: 80, height: 60)
+                                  .cornerRadius(8)
+      //                            .shadow( color: Color(.lightGray), radius:3, x:0, y:2)
+                              VStack{
+                                  Image(systemName: realEstate.hasWiFi ? "bus.fill": "")
+
+                                  //                    "water.waves.slash"
+                                      .resizable()
+                                      .scaledToFill()
+                                      .frame(width: 20 , height: 20)
+                                  
+                                  Text(realEstate.hasWiFi ? "Bus": "")
+                                      .font(.system(size: 14, weight: .semibold))
+                                  
+                                  //                    Image(systemName: realEstate.hasWiFi ? "checkmark.square.fill" : "xmark.square.fill")
+                                  //                        .foregroundColor(realEstate.hasWiFi ? .green: .red)
+                                  //                        .padding(.top , 4)
+                              }
+                              .padding()
+                          }.foregroundColor(Color("Sage"))
+                
+
+                ZStack{
+                    Rectangle()
+                        .fill(.white)
+                        .frame(width: 80, height: 60)
+                        .cornerRadius(8)
+//                            .shadow(color: Color(.lightGray), radius:3, x:0, y:2)
+                    VStack{
+                        Image(systemName: realEstate.hasGym ? "dumbbell.fill": "")
+                        
+                        //                    "water.waves.slash"
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 20 , height: 20)
+                        
+                        Text(realEstate.hasGym ? "Gym": "")
+                            .font(.system(size: 14, weight: .semibold))
+                        
+                        //                    Image(systemName: realEstate.hasWiFi ? "checkmark.square.fill" : "xmark.square.fill")
+                        //                        .foregroundColor(realEstate.hasWiFi ? .green: .red)
+                        //                        .padding(.top , 4)
+                    }
+                    .padding()
+                }.foregroundColor(Color("Mandarin"))
+                
+
             }
             HStack{
                 RoundedRectangle(cornerRadius: 12)

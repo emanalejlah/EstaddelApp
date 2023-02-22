@@ -39,13 +39,18 @@ struct SampleRealEstate: View {
                                       .stroke(Color.gray))
                                   .padding(.bottom)
                               
-                              Text(realEstate.description)
-                                  .font(.system(size: 17, weight: .semibold)).foregroundColor(Color("Sage"))
+
+
                               
                               VStack{
                                   Text(realEstate.EfName)
+                                      .font(.system(size: 17, weight: .semibold)).foregroundColor(Color("Sage"))
+                                  Text(realEstate.EfCity)
                                       .font(.system(size: 17, weight: .semibold)).foregroundColor(Color("Mandarin"))
                                   
+                                  Text(realEstate.description)
+                                  .font(.system(size: 17, weight: .regular)).foregroundColor(Color("OnyxGray"))
+                                  .padding(.bottom)
                               }
                               
                               
@@ -60,33 +65,39 @@ struct SampleRealEstate: View {
                                   Text("students")
 
                                   Spacer()
-                              }
+                              }                            .padding(.bottom)
+
                               
                               HStack{
                                   Image(systemName:"dollarsign.circle" )
                                       .font(.system(size: 25, weight: .regular))
                                       .foregroundColor(Color("Sage"))
-                                  Text(realEstate.EfPhoneNu)
+                                  Text(realEstate.Efprice)
+
+                                  Spacer()
+
                                   
-                              }
+                              }                            .padding(.bottom)
+
                               
                               
                               
-                          }.padding(.horizontal, 4)
+                          }.padding(.horizontal, 16)
                           
                       }
                       
                       Group{
                           
                           VStack(){
-                              Text("Conacat Information")
-                                  .font(.system(size: 17, weight: .semibold))
-                              Divider()
+                              CustomTitle(title: "Conacat Information")
+          //                    Text("Conacat Information")
+          //                        .font(.system(size: 17, weight: .semibold))
                               HStack{
                                   Image(systemName:"envelope" )
                                       .font(.system(size: 25, weight: .regular))
                                       .foregroundColor(Color("Sage"))
-                                  Text(realEstate.EfName)
+                                  Text(realEstate.Efemail)
+                                  Spacer()
                               }
                               Divider()
                               HStack{
@@ -94,14 +105,17 @@ struct SampleRealEstate: View {
                                       .font(.system(size: 25, weight: .regular))
                                       .foregroundColor(Color("Sage"))
                                   Text(realEstate.EfPhoneNu)
-                                  
+                                  Spacer()
+
                               }
                               
-                          }
+                          }.padding(.horizontal, 16)
                       }
             Group{
                 VStack{
-                    Text("Photo")
+                    CustomTitle(title: "Photo")
+                        .padding(.top)
+                        .padding(.horizontal, 16)
                     
                     if !images.isEmpty{
                         TabView{
@@ -129,26 +143,26 @@ struct SampleRealEstate: View {
                                         .background(Material.ultraThin)
                                         .clipShape(RoundedRectangle(cornerRadius: 12))
                                         Spacer()
-                                        Image(systemName: "bookmark")
-                                            .padding(8)
-                                            .background(Material.ultraThin)
-                                            .clipShape(Circle())
+//                                        Image(systemName: "bookmark")
+//                                            .padding(8)
+//                                            .background(Material.ultraThin)
+//                                            .clipShape(Circle())
                                     }
                                     Spacer()
-                                    HStack{
-                                        HStack{
-                                            Image(systemName: realEstate.saleCategory.imageName)
-                                            Text("\(realEstate.saleCategory.title)")
-                                        }
-                                        .padding(8)
-                                        .background(Material.ultraThin)
-                                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                                        Spacer()
-                                        Text("\(realEstate.price)")
-                                            .padding(8)
-                                            .background(Material.ultraThin)
-                                            .clipShape(Circle())
-                                    }
+//                                    HStack{
+//                                        HStack{
+//                                            Image(systemName: realEstate.saleCategory.imageName)
+//                                            Text("\(realEstate.saleCategory.title)")
+//                                        }
+//                                        .padding(8)
+//                                        .background(Material.ultraThin)
+//                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+//                                        Spacer()
+//                                        Text("\(realEstate.price)")
+//                                            .padding(8)
+//                                            .background(Material.ultraThin)
+//                                            .clipShape(Circle())
+//                                    }
                                 }.padding()
                                     .padding(.bottom, 36)
                             )
@@ -180,11 +194,11 @@ struct SampleRealEstate: View {
 //                    .padding(.leading, 2)
 //            }.padding(.horizontal, 4)
 
-            Divider()
-            ApplianceView(realEstate: $realEstate)
-            
 //            Divider()
-//            AmenitieView(realEstate: $realEstate)
+//            ApplianceView(realEstate: $realEstate)
+            
+            Divider()
+            AmenitieView(realEstate: $realEstate)
             
       
             Map(coordinateRegion: $coordinateRegion, annotationItems: [realEstate]){ realEstate in
@@ -194,23 +208,23 @@ struct SampleRealEstate: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: 20 , height: 20)
-                        Text("1000")
+//                        Text("1000")
+//
+//                            .foregroundColor(Color("Mandarin"))
                         
-                            .foregroundColor(.white)
+                        Image(systemName: "building")
                         
-                        Image(systemName: "house")
-                            .foregroundColor(.white)
-                        
-                    }
+                    }                            .foregroundColor(Color("Mandarin"))
+
                         .padding(.bottom,12)
                         .padding()
                         .background(
                             VStack(spacing: 0){
                                 Spacer()
                                 RoundedRectangle(cornerRadius: 12)
-                                    .fill(Color.green)
+                                    .fill(Color.white)
                                 Triangle()
-                                    .fill(Color.green)
+                                    .fill(Color.white)
                                     .frame(width: 20 , height: 20)
                                     .rotationEffect(.init(degrees: 180))
                             }
@@ -305,9 +319,13 @@ struct SampleRealEstate: View {
                         }
                         }
                     } label: {
-                        Text("Show your deteial")
+                        Text("Show  deteials")
+                            .font(.headline)
                             .foregroundColor(.white)
-                            .background(Color.blue)
+                            .frame(width: 358, height: 48)
+                            .background(Color("Sage"))
+                            .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                            .padding(.top)
                     }
 
                 }

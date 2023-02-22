@@ -58,100 +58,113 @@ struct AddRealEstateView: View {
 //
 //                    Text("Riyadh")
 //                        .font(.system(size: 17, weight: .regular)).foregroundColor(Color("Mandarin"))
-                    Group{
-                      
-                        VStack{
-                            
-                            
-                            //                            TextField("type info", text:$viewModel.realEstate.description, axis:.vertical)
-                            //                                .padding()
-                            //                                .frame(minHeight: 10)
-                            Text("School Information")
-                                .font(.system(size: 20, weight: .bold))
-                                .padding(.bottom)
-                                .padding(.leading)
-                            
-                            
-                            VStack(alignment: .leading){
-                                
-                                Text("School Name:")
-                                CustomInputField(imageName: "building.fill",
-                                                 placeholderText: "Educational Facility Name",
-                                                 text: $viewModel.realEstate.EfName)
-                                
-                                Text("City Name:")
-                                CustomInputField(imageName: "building.fill",
-                                                 placeholderText: "City Name",
-                                                 text: $viewModel.realEstate.EfCity)
-                                
-                                Text("About Educational Facility:")
-                                CustomInputField(imageName: "pencil.and.outline",
-                                                 placeholderText: "bio",
-                                                 text: $viewModel.realEstate.description)
-                                
-                                Text("Students Count:")
-                                CustomInputField(imageName: "person",
-                                                 placeholderText: "How many students in class",
-                                                 text: $viewModel.realEstate.EfstudentsNO)
-                                .keyboardType(.numberPad)
-
-                                
-                                Text("Fees:")
-                                CustomInputField(imageName: "dollarsign.circle",
-                                                 placeholderText: "Your fees",
-                                                 text: $viewModel.realEstate.Efprice)
-                                .keyboardType(.numberPad)
-                                
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .stroke(Color.white,lineWidth: 0.2)
-                                )
-                            }.padding(.horizontal , 16)
-                            Divider()
-                            
-                            VStack{
-                                
-                                CustomTitle(title: "Conacat Information")
-                                CustomInputField(imageName: "phone",
-                                                 placeholderText: "05XXXXXXXX",
-                                                 text: $viewModel.realEstate.EfPhoneNu)
-                                .keyboardType(.numberPad)
-//                                .limitTextLength($viewModel.realEstate.EfPhoneNu, to: 20)
-
-                                
-                                
-                                
-                                CustomInputField(imageName: "envelope",
-                                                 placeholderText: "Email",
-                                                 text: $viewModel.realEstate.Efemail)
-
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .stroke(Color.white,lineWidth: 0.2)
-                                )
-                            }.padding(.horizontal , 16)
-                            Divider()
-                            //                    nwe
-                            //                        VStack{
-                            //                            HStack{
-                            //                                Text("SchoolName :")
-                            //                                    .foregroundColor(.orange)
-                            //                                    .font(.title)
-                            //                                Spacer()
-                            //                            }
-                            //
-                            //                            TextField("SchoolName", text:$viewModel.realEstate.EfName, axis:.vertical)
-                            //                                .padding()
-                            //                                .frame(minHeight: 100)
-                            //
-                            //                                .overlay(
-                            //                                    RoundedRectangle(cornerRadius: 5)
-                            //                                        .stroke(Color.white,lineWidth: 0.2)
-                            //                                )
-                            //                        }.padding(.horizontal , 4)
-                            // NEW
-                        }
-                    }
+                    TextFiledsView()
+//                    Group{
+//
+//                        VStack{
+//
+//
+//                            //                            TextField("type info", text:$viewModel.realEstate.description, axis:.vertical)
+//                            //                                .padding()
+//                            //                                .frame(minHeight: 10)
+//                            Text("School Information")
+//                                .font(.system(size: 20, weight: .bold))
+//                                .padding(.bottom)
+//                                .padding(.leading)
+//
+//
+//                            VStack(alignment: .leading){
+//
+//                                Text("School Name:")
+//                                CustomInputField(imageName: "building.fill",
+//                                                 placeholderText: "Educational Facility Name",
+//                                                 text: $viewModel.realEstate.EfName)
+//
+//                                Text("City Name:")
+//                                CustomInputField(imageName: "building.fill",
+//                                                 placeholderText: "City Name",
+//                                                 text: $viewModel.realEstate.EfCity)
+//
+//                                Text("About Educational Facility:")
+//
+//                                HStack(alignment: .top){
+//                                    Image(systemName:"pencil.and.outline")
+//                                    .padding(.top, 8)
+//                                    TextEditor(text: $viewModel.realEstate.description)
+//
+//                                }
+//                                .padding(.horizontal)
+//                                .foregroundColor(Color("Sage"))
+//                                .frame(width: 358, height: 72)
+//                                .overlay(
+//                                    RoundedRectangle(cornerRadius: 10)
+//                                        .stroke(.gray, lineWidth: 1))
+//                                .padding(.bottom, 8)
+//
+//
+//                                Text("Students Count:")
+//                                CustomInputField(imageName: "person",
+//                                                 placeholderText: "How many students in class",
+//                                                 text: $viewModel.realEstate.EfstudentsNO)
+//                                .keyboardType(.numberPad)
+//
+//
+//                                Text("Fees:")
+//                                CustomInputField(imageName: "dollarsign.circle",
+//                                                 placeholderText: "Your fees",
+//                                                 text: $viewModel.realEstate.Efprice)
+//                                .keyboardType(.numberPad)
+//
+//                                .overlay(
+//                                    RoundedRectangle(cornerRadius: 5)
+//                                        .stroke(Color.white,lineWidth: 0.2)
+//                                )
+//                            }.padding(.horizontal , 16)
+//                            Divider()
+//
+//                            VStack{
+//
+//                                CustomTitle(title: "Conacat Information")
+//                                CustomInputField(imageName: "phone",
+//                                                 placeholderText: "05XXXXXXXX",
+//                                                 text: $viewModel.realEstate.EfPhoneNu)
+//                                .keyboardType(.numberPad)
+////                                .limitTextLength($viewModel.realEstate.EfPhoneNu, to: 20)
+//
+//
+//
+//
+//                                CustomInputField(imageName: "envelope",
+//                                                 placeholderText: "Email",
+//                                                 text: $viewModel.realEstate.Efemail)
+//
+//                                .overlay(
+//                                    RoundedRectangle(cornerRadius: 5)
+//                                        .stroke(Color.white,lineWidth: 0.2)
+//                                )
+//                            }.padding(.horizontal , 16)
+//                            Divider()
+//                            //                    nwe
+//                            //                        VStack{
+//                            //                            HStack{
+//                            //                                Text("SchoolName :")
+//                            //                                    .foregroundColor(.orange)
+//                            //                                    .font(.title)
+//                            //                                Spacer()
+//                            //                            }
+//                            //
+//                            //                            TextField("SchoolName", text:$viewModel.realEstate.EfName, axis:.vertical)
+//                            //                                .padding()
+//                            //                                .frame(minHeight: 100)
+//                            //
+//                            //                                .overlay(
+//                            //                                    RoundedRectangle(cornerRadius: 5)
+//                            //                                        .stroke(Color.white,lineWidth: 0.2)
+//                            //                                )
+//                            //                        }.padding(.horizontal , 4)
+//                            // NEW
+//                        }
+//                    }
                 }
                 Group{
                     VStack{
@@ -644,14 +657,14 @@ struct AmentitiesAddRealEstateView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            CustomTitle(title: "Amentities")
+            CustomTitle(title: "Facilities")
                 .padding(.top)
             
             Group{
                     HStack(spacing: 18){
 
                         Button {
-                            viewModel.realEstate.hasWiFi.toggle()
+                            viewModel.realEstate.isSmart.toggle()
                         } label: {
                             
                             ZStack{
@@ -662,37 +675,11 @@ struct AmentitiesAddRealEstateView: View {
                                     .shadow(color: Color(.lightGray), radius:3, x:0, y:2)
                                 
                                 VStack{
-                                    Image(systemName: viewModel.realEstate.isSmart ? "lock.fill" : "lock")
+                                    Image(systemName: viewModel.realEstate.isSmart ? "desktopcomputer" : "laptopcomputer")
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width: 20, height: 20)
                                     
-                                    
-                                    Text("Smart")
-                                        .font(.system(size: 12, weight: .semibold))
-                                    
-                                }
-                                
-                                    .padding()
-                                
-                            }
-
-                        }
-                        Button {
-                            viewModel.realEstate.hasGym.toggle()
-                        } label: {
-                            
-                            ZStack{
-                                Rectangle()
-                                    .fill(.white)
-                                    .frame(width: 80, height: 60)
-                                    .cornerRadius(8)
-                                    .shadow(color: Color(.lightGray), radius:3, x:0, y:2)
-                                VStack{
-                                    Image(systemName: viewModel.realEstate.hasGym ? "person.fill" : "person")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 20, height: 20)
                                     
                                     Text("Smart")
                                         .font(.system(size: 12, weight: .semibold))
@@ -715,12 +702,12 @@ struct AmentitiesAddRealEstateView: View {
                                     .cornerRadius(8)
                                     .shadow(color: Color(.lightGray), radius:3, x:0, y:2)
                                 VStack{
-                                    Image(systemName: viewModel.realEstate.hasPool ? "figure.pool.swim": "water.waves.slash")
+                                    Image(systemName: viewModel.realEstate.hasPool ? "figure.pool.swim" : "water.waves.slash")
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width: 20, height: 20)
                                     
-                                    Text("Smart")
+                                    Text("Pool")
                                         .font(.system(size: 12, weight: .semibold))
                                     
                                 }
@@ -731,7 +718,7 @@ struct AmentitiesAddRealEstateView: View {
 
                         }
                         Button {
-                            viewModel.realEstate.hasElevator.toggle()
+                            viewModel.realEstate.hasWiFi.toggle()
                         } label: {
                             
                             ZStack{
@@ -741,12 +728,38 @@ struct AmentitiesAddRealEstateView: View {
                                     .cornerRadius(8)
                                     .shadow(color: Color(.lightGray), radius:3, x:0, y:2)
                                 VStack{
-                                    Image(systemName: viewModel.realEstate.hasElevator ? "heart.fill" : "heart")
+                                    Image(systemName: viewModel.realEstate.hasWiFi ? "bus.fill": "bus")
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width: 20, height: 20)
                                     
-                                    Text("Smart")
+                                    Text("Bus")
+                                        .font(.system(size: 12, weight: .semibold))
+                                    
+                                }
+                                
+                                    .padding()
+                                
+                            }
+
+                        }
+                        Button {
+                            viewModel.realEstate.hasGym.toggle()
+                        } label: {
+                            
+                            ZStack{
+                                Rectangle()
+                                    .fill(.white)
+                                    .frame(width: 80, height: 60)
+                                    .cornerRadius(8)
+                                    .shadow(color: Color(.lightGray), radius:3, x:0, y:2)
+                                VStack{
+                                    Image(systemName: viewModel.realEstate.hasGym ? "dumbbell.fill" : "dumbbell")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 20, height: 20)
+                                    
+                                    Text("Gym")
                                         .font(.system(size: 12, weight: .semibold))
                                     
                                 }
