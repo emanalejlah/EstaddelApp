@@ -37,7 +37,7 @@ struct Login: View {
                                  .frame(width: 80, height: 80)
                          }
 
-                     }
+                     }.padding(.horizontal , 20)
                      VStack{
                          Image(systemName: "person.circle")
                          

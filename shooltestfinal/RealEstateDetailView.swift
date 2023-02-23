@@ -346,7 +346,7 @@ struct RealEstateDetailView: View {
 //           }
        
 
-        .navigationTitle("text")
+        .navigationTitle("Facility Information")
 
     }
 

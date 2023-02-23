@@ -90,7 +90,7 @@ struct ProfileView: View {
                     } label: {
                         HStack{
                             Image(systemName: "building")
-                            Text("Educational Complex")
+                            Text(" My Facilities")
                         }
                     }
 
@@ -229,7 +229,7 @@ struct ProfileView: View {
                     } label: {
                         HStack{
                             Spacer()
-                            Text("LogOut")
+                            Text("Log Out")
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .frame(width: 358, height: 48)

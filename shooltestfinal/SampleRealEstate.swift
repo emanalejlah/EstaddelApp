@@ -239,7 +239,7 @@ struct SampleRealEstate: View {
                 coordinateRegion.center = realEstate.location
                 coordinateRegion.span = realEstate.city.extraZoomLevel
             }
-//            Group{
+            Group{
 //            HStack{
 //                VStack{
 ////          Image("people-1")
@@ -302,34 +302,34 @@ struct SampleRealEstate: View {
 //                    }
 //
 //                }
-//                Group{
-//                    Button {
-//                        isLoading.toggle()
-//                        realEstate.ownerId = firebaseUserManager.user.id
-//                        firebaseRealEstateManager.addRealEstate(realEstate: realEstate, images: images) { isSuccess in
-//
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-//                            if isSuccess {
-//                                self.isShowingAddingRealEstateView = false
-//                            }else {
-//                                isLoading.toggle()
-//                                print("DUBAG: errorb while uploding realestate")
-//                            }
-//
-//                        }
-//                        }
-//                    } label: {
-//                        Text("Show  deteials")
-//                            .font(.headline)
-//                            .foregroundColor(.white)
-//                            .frame(width: 358, height: 48)
-//                            .background(Color("Sage"))
-//                            .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
-//                            .padding(.top)
-//                    }
-//
-//                }
-//                }
+                Group{
+                    Button {
+                        isLoading.toggle()
+                        realEstate.ownerId = firebaseUserManager.user.id
+                        firebaseRealEstateManager.addRealEstate(realEstate: realEstate, images: images) { isSuccess in
+
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            if isSuccess {
+                                self.isShowingAddingRealEstateView = false
+                            }else {
+                                isLoading.toggle()
+                                print("DUBAG: errorb while uploding realestate")
+                            }
+
+                        }
+                        }
+                    } label: {
+                        Text("Publish")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(width: 358, height: 48)
+                            .background(Color("Sage"))
+                            .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                            .padding(.top)
+                    }
+
+                }
+                }
          
 
             
@@ -353,7 +353,7 @@ struct SampleRealEstate: View {
                
        }
 
-        .navigationTitle("My Education Complex")
+        .navigationTitle("My Facility")
 
     }
 

@@ -605,7 +605,6 @@
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We would like to access to your location";
 				INFOPLIST_KEY_NSLocationUsageDescription = "We would like to access to your location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We would like to access to your location";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Would Like to Access Your Photos ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -643,7 +642,6 @@
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We would like to access to your location";
 				INFOPLIST_KEY_NSLocationUsageDescription = "We would like to access to your location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We would like to access to your location";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Would Like to Access Your Photos ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

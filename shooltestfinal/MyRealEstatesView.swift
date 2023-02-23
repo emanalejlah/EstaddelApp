@@ -105,116 +105,7 @@ struct MyRealEstatesView: View {
                             }        .padding()
                                 .frame(width: 250, height: 100)
                         }
-//                            Group{
-//                                VStack(alignment: .leading , spacing: 8){
-//                                    //                                HStack{
-//                                    //                                    Text("\(realEstate.price)")
-//                                    //                                    HStack{
-//                                    //                                        Image(systemName:realEstate.saleCategory.imageName)
-//                                    //                                        Text(realEstate.saleCategory.title)
-//                                    //                                    }
-//
-//                                    //                                    .foregroundColor(.cyan)
-//
-//                                    //                                }
-//                                    Text(realEstate.EfName)
-//                                        .foregroundColor(Color("Sage"))
-//
-//                                    Text(realEstate.description)
-//                                        .foregroundColor(Color("OnyxGray"))
-//                                    //   عدد                     سطور عقار وصف المدرسه
-//                                        .lineLimit(3)
-//                                    //                            طريقه امتداد الكلام في الوصف
-//                                        .fixedSize(horizontal: false, vertical: true)
-//                                    //                                .padding(.top, 2)
-//                                        .multilineTextAlignment(.leading)
-//
-//
-//
-//                                    //                                Divider()
-//                                    //                                HStack{
-//                                    //                                    HStack(spacing: 4){
-//                                    //                                        Image(systemName: "bed.double")
-//                                    //                                        Text("\(realEstate.beds)")
-//                                    //                                    }.foregroundColor(.white)
-//                                    //                                        .frame(width: 50 , height: 28)
-//                                    //                                        .background(Color.blue)
-//                                    //                                        .cornerRadius(8)
-//                                    //                                    HStack{
-//                                    //                                        HStack(spacing: 4){
-//                                    //                                            Image(systemName: "shower.fill")
-//                                    //                                            Text("\(realEstate.baths)")
-//                                    //                                        }.foregroundColor(.white)
-//                                    //                                            .frame(width: 50 , height: 28)
-//                                    //                                            .background(Color.orange )
-//                                    //                                            .cornerRadius(8)
-//                                    //
-//                                    //                                    }
-//                                    //                                        HStack(spacing: 4){
-//                                    //                                            Image(systemName: "photo.on.rectangle.angled")
-//                                    //                                            Text("\(realEstate.images.count)")
-//                                    //                                        }.foregroundColor(.white)
-//                                    //                                            .frame(width: 50 , height: 28)
-//                                    //                                            .background(Color.purple )
-//                                    //                                            .cornerRadius(8)
-//                                    //
-//                                    //                                    HStack(spacing: 4){
-//                                    //                                        Image(systemName: "ruler.fill")
-//                                    //                                        Text("\(realEstate.space)")
-//                                    //                                    }.foregroundColor(.white)
-//                                    //                                        .frame(width: 50 , height: 28)
-//                                    //                                        .background(Color.gray )
-//                                    //                                        .cornerRadius(8)
-//                                }
-//
-//                                Group{
-//                                    HStack(spacing: 10 ){
-//
-//                                        Spacer()
-//                                        VStack(spacing: 2 ){
-//                                            Image(systemName: realEstate.isSmart ? "desktopcomputer": "")
-//                                                .resizable()
-//                                                .scaledToFill()
-//                                                .frame(width: 24 , height: 24)
-//
-//                                        }.frame(width: 44)
-//                                        //                                            VStack(spacing: 2 ){
-//                                        //                                                Image(systemName: realEstate.hasWiFi ? "bus.fill": "")
-//                                        //                                                    .resizable()
-//                                        //                                                    .scaledToFill()
-//                                        //                                                    .frame(width: 24 , height: 24)
-//                                        //
-//                                        //                                            }.frame(width: 44)
-//                                        VStack(spacing: 2 ){
-//                                            Image(systemName: realEstate.hasPool ? "figure.pool.swim": "")
-//                                                .resizable()
-//                                                .scaledToFill()
-//                                                .frame(width: 24 , height: 24)
-//
-//                                        }.frame(width: 44)
-//                                        VStack(spacing: 2 ){
-//                                            Image(systemName: realEstate.hasElevator ? "figure.roll": "")
-//                                                .resizable()
-//                                                .scaledToFill()
-//                                                .frame(width: 24 , height: 24)
-//
-//                                        }.frame(width: 60)
-//                                        VStack(spacing: 2 ){
-//                                            Image(systemName: realEstate.hasGym ? "dumbbell.fill": "")
-//                                                .resizable()
-//                                                .scaledToFill()
-//                                                .frame(width: 24 , height: 24)
-//
-//                                        }.frame(width: 44)
-//
-//                                    }.padding(.top)
-//                                        .foregroundColor(Color("Sage"))
-//                                }
-//                            }
-    //
-    //
-    //
-    //                                }
+
                                     
                                 
                             
@@ -225,45 +116,18 @@ struct MyRealEstatesView: View {
           
                         
                         
-                        Spacer()
-                    Image(systemName: "chevron.right")
-                            .opacity(0.6)
-                            .padding(.trailing,8)
+                    
                     
                     }
            
                     
                 }.foregroundColor(Color(.label))
-                    .overlay (
-                        Menu {
-                            ForEach(0 ..< 5){ item in
-                                Button {
-                                    
-                                } label: {
-                                       Text("option\(item)")
-                                }
-
-                            }
-                            Divider()
-                            Button(role: .destructive) {
-                                
-                            } label: {
-                                Label("Delete", systemImage: "trach")
-                            }
-
-                        } label: {
-                            Image(systemName: "ellipsis")
-                                .foregroundColor(.blue)
-                                .padding(8)
-                        }
-                        , alignment: .topTrailing
-                    )
-                Divider()
-                    .padding(.vertical , 8)
+                
+//                    .padding(.vertical , 8)
                 
             }
         }
-        .navigationTitle("My Education Complex")
+        .navigationTitle("My Facility")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

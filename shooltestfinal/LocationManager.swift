@@ -2,7 +2,7 @@
 //  LocationManager.swift
 //  RealEstateClone
 //
-//  Created by Tariq Almazyad on 7/17/22.
+//  Created by eman alejilah on 26/07/1444 AH.
 //
 
 import SwiftUI

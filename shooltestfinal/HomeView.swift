@@ -371,7 +371,7 @@ struct HomeView: View {
                     } label: {
                         Text("Add Facility")
                             .bold()
-                    }.padding(.leading , 155)
+                    }.padding(.leading , 148)
 
                     
 
