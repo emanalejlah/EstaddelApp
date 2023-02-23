@@ -38,7 +38,10 @@ struct AddRealEstateView: View {
     @StateObject var viewModel = AddRealEstateViewModel()
     @EnvironmentObject var firebaseUserManager : FirebaseUserManager
     @Binding var isShowingAddingRealEstateView: Bool
-
+    @State private var showImagePickerOptions: Bool = false
+    @State private var showImagePicker: Bool = false
+    @State private var sourceType = UIImagePickerController.SourceType.photoLibrary
+    @State private var photo:UIImage?
     @Environment(\.presentationMode) private var presentationMode
     var characterLimit = 20
 
@@ -226,6 +229,7 @@ struct AddRealEstateView: View {
                         
                         
                     }
+                   
                     
                 }.padding(.horizontal, 16)
                 
@@ -754,6 +758,7 @@ struct AmentitiesAddRealEstateView: View {
                     }
                 
                 
+                
                 //                    VStack(alignment: .center, spacing: 2) {
                 //                        Rectangle()
                 //                            .fill(.white)
@@ -986,6 +991,58 @@ struct mapUIkitView: UIViewRepresentable{
         func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
 //            print("Dueubg: user coordinets\(mapView.centerCoordinate)")
             self.parent.realEstate.location = mapView.centerCoordinate
+        }
+    }
+}
+
+import SwiftUI
+
+/// Image Picker Representable
+///
+struct ImagePicker: UIViewControllerRepresentable {
+    
+    typealias imagePickerController = UIImagePickerController
+    
+    @Binding var image: UIImage?
+    @Binding var isShown: Bool
+
+    var sourceType: UIImagePickerController.SourceType = .camera
+    
+    func makeUIViewController(context: Context) -> some UIViewController {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = sourceType
+        imagePicker.delegate = context.coordinator
+        return imagePicker
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(image: $image, isShown: $isShown)
+    }
+    
+    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+        
+        @Binding var image: UIImage?
+        @Binding var isShown: Bool
+        var sourceType: UIImagePickerController.SourceType = .camera
+        
+        init(image: Binding<UIImage?    >, isShown: Binding<Bool>) {
+            _image = image
+            _isShown = isShown
+        }
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                image = uiImage
+                isShown = false
+            }
+        }
+        
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            isShown = false
         }
     }
 }
