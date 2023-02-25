@@ -239,7 +239,7 @@ struct RealEstate: Codable, Equatable, Identifiable {
     var location: CLLocationCoordinate2D = .init(latitude: 0.0, longitude: 0.0)
     
     var saleCategory          : SaleCategory = .rent
-    var city                  : City = .arrass
+    var city                  : City = .riyadh
     var type                  : RealEstateType = .school
     var offer                 : OfferType      = .yearly
     var isAvailable           : Bool = true
